@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Login form</title>
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="styles/styles.css">
+<script type="text/javascript" src="scripts/jquery-1.10.2.js"></script>
+<script type="text/javascript" src="scripts/hint_popup.js"></script>
+
+
+</head>
+
+<body>
+
+<form class="login_form" action="success.html">
+<ul>
+    <li>
+         <h2>Login</h2>
+         <span class="required">* required field</span>
+    </li>
+    <li>
+        <label for="username">Username : <span class="required_label"> * </span></label>
+        <input type="text" name="username" placeholder="Username" pattern="^(?=.*[A-z])(?=.*\d)(?!.*\s).*" required/>
+		<span class="username_req_hint">Username field is required  and can not be empty</span>
+		<span class="username_pattern_hint">Field must have at least one letter and one number</span>
+    </li>
+	<li>
+		<label for="password">Password : <span class="required_label"> * </span></label>
+		<input type="password" name="password" placeholder="Password" required/>
+		<span class="password_req_hint">Password field is required and cannot be empty</span>	
+	</li>
+<li>
+	<button class="submit" type="submit">Login</button>
+</li>
+</ul>
+</form>
+
+</body>
+
+
+</html>
