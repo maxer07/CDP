@@ -1,5 +1,6 @@
 $(document).ready(function() {
   
+  
   $('.login_form input:required').focusout(function() {
 		var a = $(this).val();
 		if (a.length == 0) {
@@ -30,8 +31,6 @@ $(document).ready(function() {
             
   
 }); 
-
-		
 		
   
 });

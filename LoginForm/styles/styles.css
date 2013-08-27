@@ -114,9 +114,7 @@ margin-left:156px;
 	-o-transition: padding .5s;
 	transition: padding .5s;
 }
-.login_form input:focus {
-	padding-right:70px;
-}
+
 .invalid_input {
 	background: #fff url(../images/invalid.png) no-repeat 98% center;
 	box-shadow: 0 0 3px #d45252;
@@ -151,19 +149,14 @@ margin-left:156px;
     display: none;
 }
 
-:-moz-placeholder {
-	color: grey;
-}
-::-webkit-input-placeholder {
-	color: grey;
-}
 
 /*.login_form input:focus + .required_hint {
 display: inline;
 }
 .login_form input:required:valid + .required_hint {
 background: #28921f;
-} 
+}
 .login_form input:required:valid + .required_hint::before {
 color:#28921f;
-}*/
+}
+        

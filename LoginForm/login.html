@@ -13,7 +13,7 @@
 
 <body>
 
-<form class="login_form" action="success.html">
+<form class="login_form" action="success.html" method="post">
 <ul>
     <li>
          <h2>Login</h2>
@@ -21,7 +21,7 @@
     </li>
     <li>
         <label for="username">Username : <span class="required_label"> * </span></label>
-        <input type="text" name="username" placeholder="Username" pattern="^(?=.*[A-z])(?=.*\d)(?!.*\s).*" required/>
+        <input type="text" name="username" placeholder="Username" pattern="^(?=.*[A-z])(?=.*\d)(?!.*\s).*" required />
 		<span class="username_req_hint">Username field is required  and can not be empty</span>
 		<span class="username_pattern_hint">Field must have at least one letter and one number</span>
     </li>
