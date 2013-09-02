@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite failures="0" time="0.109" errors="0" skipped="0" tests="4" name="com.epam.oleshchuk.HelloServiceTests">
+<testsuite failures="0" time="0.114" errors="0" skipped="0" tests="4" name="com.epam.oleshchuk.HelloServiceTests">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.7.0_25\jre\bin"/>
@@ -17,7 +17,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.os.patch.level" value="Service Pack 1"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="D:\project\spring_test"/>
+    <property name="user.dir" value="D:\CDP\repository\CDP\Module3_Spring\Task1_HelloSpring\spring_test"/>
     <property name="java.runtime.version" value="1.7.0_25-b17"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
     <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.7.0_25\jre\lib\endorsed"/>
@@ -30,7 +30,7 @@
     <property name="os.name" value="Windows 7"/>
     <property name="classworlds.conf" value="D:\apache-maven-3.1.0\bin\m2.conf"/>
     <property name="sun.jnu.encoding" value="Cp1251"/>
-    <property name="java.library.path" value="C:\Program Files\Java\jdk1.7.0_25\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files (x86)\JetBrains\IntelliJ IDEA 12.1.4\bin\..\.\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\TortoiseSVN\bin;C:\Program Files\SlikSvn\bin;%M2%;C:\Program Files\Java\jdk1.7.0_25;D:\apache-maven-3.1.0\bin;C:\Program Files (x86)\Git\bin;c:\program files (x86)\jetbrains\intellij idea 12.1.4\jre\jre\bin;."/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk1.7.0_25\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files (x86)\JetBrains\IntelliJ IDEA Community Edition 12.1.4\bin\..\.\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\TortoiseSVN\bin;C:\Program Files\SlikSvn\bin;%M2%;C:\Program Files\Java\jdk1.7.0_25;D:\apache-maven-3.1.0\bin;C:\Program Files (x86)\Git\bin;c:\program files (x86)\jetbrains\intellij idea community edition 12.1.4\jre\jre\bin;."/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.class.version" value="51.0"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
@@ -39,10 +39,10 @@
     <property name="user.timezone" value="Europe/Helsinki"/>
     <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
     <property name="java.specification.version" value="1.7"/>
-    <property name="idea.launcher.bin.path" value="C:\Program Files (x86)\JetBrains\IntelliJ IDEA 12.1.4\bin"/>
+    <property name="idea.launcher.bin.path" value="C:\Program Files (x86)\JetBrains\IntelliJ IDEA Community Edition 12.1.4\bin"/>
     <property name="file.encoding" value="UTF-8"/>
     <property name="user.name" value="Maksym_Oleshchuk"/>
-    <property name="java.class.path" value="D:\apache-maven-3.1.0\boot\plexus-classworlds-2.4.2.jar;C:\Program Files (x86)\JetBrains\IntelliJ IDEA 12.1.4\lib\idea_rt.jar"/>
+    <property name="java.class.path" value="D:\apache-maven-3.1.0\boot\plexus-classworlds-2.4.2.jar;C:\Program Files (x86)\JetBrains\IntelliJ IDEA Community Edition 12.1.4\lib\idea_rt.jar"/>
     <property name="org.slf4j.simpleLogger.defaultLogLevel" value="info"/>
     <property name="java.vm.specification.version" value="1.7"/>
     <property name="sun.arch.data.model" value="64"/>
@@ -65,7 +65,7 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase time="0.109" classname="com.epam.oleshchuk.HelloServiceTests" name="testHelloServiceWithUkrDAOFromXML"/>
+  <testcase time="0.114" classname="com.epam.oleshchuk.HelloServiceTests" name="testHelloServiceWithUkrDAOFromXML"/>
   <testcase time="0" classname="com.epam.oleshchuk.HelloServiceTests" name="testHelloServiceWithRusDAOFromXML"/>
   <testcase time="0" classname="com.epam.oleshchuk.HelloServiceTests" name="testHelloServiceWithEngDAOFromXML"/>
   <testcase time="0" classname="com.epam.oleshchuk.HelloServiceTests" name="testHelloServiceWithAutowired"/>
