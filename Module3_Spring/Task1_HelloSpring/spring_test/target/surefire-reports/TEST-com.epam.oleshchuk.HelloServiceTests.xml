@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite failures="0" time="0.114" errors="0" skipped="0" tests="4" name="com.epam.oleshchuk.HelloServiceTests">
+<testsuite failures="0" time="0.106" errors="0" skipped="0" tests="4" name="com.epam.oleshchuk.HelloServiceTests">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.7.0_25\jre\bin"/>
@@ -11,7 +11,7 @@
     <property name="guice.disable.misplaced.annotation.check" value="true"/>
     <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
     <property name="file.encoding.pkg" value="sun.io"/>
-    <property name="idea.launcher.port" value="7535"/>
+    <property name="idea.launcher.port" value="7533"/>
     <property name="user.script" value=""/>
     <property name="user.country" value="US"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
@@ -65,7 +65,7 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase time="0.114" classname="com.epam.oleshchuk.HelloServiceTests" name="testHelloServiceWithUkrDAOFromXML"/>
+  <testcase time="0.106" classname="com.epam.oleshchuk.HelloServiceTests" name="testHelloServiceWithUkrDAOFromXML"/>
   <testcase time="0" classname="com.epam.oleshchuk.HelloServiceTests" name="testHelloServiceWithRusDAOFromXML"/>
   <testcase time="0" classname="com.epam.oleshchuk.HelloServiceTests" name="testHelloServiceWithEngDAOFromXML"/>
   <testcase time="0" classname="com.epam.oleshchuk.HelloServiceTests" name="testHelloServiceWithAutowired"/>
