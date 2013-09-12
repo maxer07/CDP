@@ -1,0 +1,40 @@
+a:link {
+    color: #000000;
+    text-decoration: none
+}
+
+a:visited {
+    color: #000000;
+    text-decoration: none
+}
+
+a:hover {
+    color: #ff0000;
+    text-decoration: none
+}
+
+a:active {
+    color: darkcyan;
+    text-decoration: none
+}
+a.button {
+    background-clip: padding-box;
+    background-color: #FFDA44;
+    background-image: linear-gradient(#FFDA44, #FABC2B);
+    border: 1px solid #E1A61A;
+    border-radius: 0.357143em 0.357143em 0.357143em 0.357143em;
+    color: #333333;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 0.857143em;
+    font-weight: normal;
+    line-height: normal;
+    outline: 0 none;
+    overflow: visible;
+    padding: 0.5em 1em;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.5);
+    width: auto;
+}
