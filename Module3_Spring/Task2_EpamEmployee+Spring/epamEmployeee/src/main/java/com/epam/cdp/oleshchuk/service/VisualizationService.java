@@ -1,12 +1,13 @@
 package com.epam.cdp.oleshchuk.service;
 
 import com.epam.cdp.oleshchuk.data.EpamEmployeeData;
+import com.epam.cdp.oleshchuk.exception.ReadResourceException;
+import com.epam.cdp.oleshchuk.exception.ServiceException;
 import com.epam.cdp.oleshchuk.model.*;
 import com.epam.cdp.oleshchuk.util.JsonEpamEmployeeParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.io.IOException;
 import java.util.*;
 
 @Service
@@ -17,37 +18,21 @@ public class VisualizationService {
     @Autowired
     private ChartModel chartModel;
 
-    public List<String> getFirstData() {
+    public Set<String> getFirstData() throws ServiceException {
         Set<String> uniqueCities = null;
-        List<String> cities = null;
-        try {
-            uniqueCities = new HashSet<String>();
-            cities = new ArrayList<String>();
-            if (checkEpamEmployeeData()) {
-                epamEmployeeData = JsonEpamEmployeeParser.parseAndGetData();
+        uniqueCities = new TreeSet<String>();
+        getEpamEmployeeData();
+        for (Map<String, List<Object>> values : epamEmployeeData.getEPAM().values()) {
+            for (String city : values.keySet()) {
+                uniqueCities.add(city);
             }
-            for (Map<String, List<Object>> values : epamEmployeeData.getEPAM().values()) {
-                for (String city : values.keySet()) {
-                    uniqueCities.add(city);
-                }
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
         }
-        cities.addAll(uniqueCities);
-        Collections.sort(cities);
-        return cities;
+        return uniqueCities;
     }
 
-
-    public ChartModel getChartParams(String city) throws IOException {
-
-        if (checkEpamEmployeeData()) {
-            this.epamEmployeeData = JsonEpamEmployeeParser.parseAndGetData();
-        }
-
+    public ChartModel getChartParams(String city) throws ServiceException {
+        getEpamEmployeeData();
         Map<String, List<Object>> yearsEmployeeMap = new TreeMap<String, List<Object>>();
-
         for (Map.Entry<String, Map<String, List<Object>>> entry : epamEmployeeData.getEPAM().entrySet()) {
             List<Object> values = entry.getValue().get(city);
 
@@ -83,8 +68,8 @@ public class VisualizationService {
 
             series.add(serie);
         }
-        createChartModel(new Chart("bar"), new Title(city,50), new Subtitle(years.toString()), new xAxis(years),
-                new yAxis(new Title("Employee",10)), series, new Legend(true,"top",0,40), new PlotOptions(new Bar(true)));
+        createChartModel(new Chart("bar"), new Title(city, 50), new Subtitle(years.toString()), new xAxis(years),
+                new yAxis(new Title("Employee", 10)), series, new Legend(true, "top", 0, 40), new PlotOptions(new Bar(true)));
         return chartModel;
     }
 
@@ -100,7 +85,13 @@ public class VisualizationService {
         chartModel.setPlotOptions(plotOptions);
     }
 
-    private boolean checkEpamEmployeeData() {
-        return (epamEmployeeData.getEPAM() == null);
+    private void getEpamEmployeeData() throws ServiceException {
+        if (epamEmployeeData.getEPAM() == null) {
+            try {
+                this.epamEmployeeData = JsonEpamEmployeeParser.parseAndGetData();
+            } catch (ReadResourceException e) {
+                throw new ServiceException("Parsing exception");
+            }
+        }
     }
 }

@@ -1,5 +1,6 @@
 package com.epam.cdp.oleshchuk.controller;
 
+import com.epam.cdp.oleshchuk.exception.ServiceException;
 import com.epam.cdp.oleshchuk.model.ChartModel;
 import com.epam.cdp.oleshchuk.service.VisualizationService;
 import com.google.gson.Gson;
@@ -12,15 +13,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
-/**
- * Created with IntelliJ IDEA.
- * User: Maksym_Oleshchuk
- * Date: 03.09.13
- * Time: 17:46
- * To change this template use File | Settings | File Templates.
- */
 @Controller
 public class VisualizationController {
 
@@ -35,12 +31,28 @@ public class VisualizationController {
 
     @RequestMapping(value = "/getChart", method = RequestMethod.GET)
     public ModelAndView viewChartByCity(ModelMap modelMap, @RequestParam(value = "city") String city) throws IOException {
-        List<String> cities = visualizationService.getFirstData();
-        if (city== null || !cities.contains(city) ) {
-          city = "Kharkiv";
+        List<String> cities = new ArrayList<String>();
+        Set<String> uniqueCities = null;
+        try {
+            uniqueCities = visualizationService.getFirstData();
+        } catch (ServiceException e) {
+            return new ModelAndView("error", modelMap);
         }
-        modelMap.put("cities",cities);
-        ChartModel chartModel = visualizationService.getChartParams(city);
+        if (uniqueCities != null) {
+            cities.addAll(uniqueCities);
+        } else {
+            return new ModelAndView("error", modelMap);
+        }
+        if (city == null || !cities.contains(city)) {
+            city = "Kharkiv";
+        }
+        modelMap.put("cities", cities);
+        ChartModel chartModel = null;
+        try {
+            chartModel = visualizationService.getChartParams(city);
+        } catch (ServiceException e) {
+            return new ModelAndView("error", modelMap);
+        }
         modelMap.put("json", new Gson().toJson(chartModel));
         return new ModelAndView("index", modelMap);
     }
