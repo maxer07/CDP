@@ -3,7 +3,7 @@ package com.epam.cdp.oleshchuk.cinema.model;
 import java.io.Serializable;
 import java.util.List;
 
-public class RequestJson implements Serializable {
+public class TicketIdsJson implements Serializable {
 
     private List<Long> ticketIds;
 

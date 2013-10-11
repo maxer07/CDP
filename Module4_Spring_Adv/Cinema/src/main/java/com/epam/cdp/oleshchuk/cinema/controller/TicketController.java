@@ -1,13 +1,13 @@
 package com.epam.cdp.oleshchuk.cinema.controller;
 
-import com.epam.cdp.oleshchuk.cinema.model.RequestJson;
 import com.epam.cdp.oleshchuk.cinema.model.Ticket;
+import com.epam.cdp.oleshchuk.cinema.model.TicketIdsJson;
 import com.epam.cdp.oleshchuk.cinema.model.User;
 import com.epam.cdp.oleshchuk.cinema.service.TicketService;
 import com.epam.cdp.oleshchuk.cinema.service.UserService;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.HandlerMapping;
 
@@ -25,12 +25,14 @@ import java.util.Map;
 public class TicketController {
 
     @Autowired
-    TicketService ticketService;
+    private TicketService ticketService;
     @Autowired
-    UserService userService;
+    private UserService userService;
+    private static final Logger log = Logger.getLogger(TicketController.class);
+
 
     @RequestMapping(method = RequestMethod.GET, value = "/tickets/**")
-    public Map<String, Object> bookTicket(HttpServletRequest request, HttpServletResponse response, Model model) throws ServletException, IOException {
+    public Map<String, Object> getAllTickets(HttpServletRequest request, HttpServletResponse response) {
         Map<String, Object> returnParams = new HashMap<String, Object>();
         List<Ticket> availableTicket = null;
         String remainingPaths = (String) request.getAttribute(HandlerMapping.PATH_WITHIN_HANDLER_MAPPING_ATTRIBUTE);
@@ -38,20 +40,21 @@ public class TicketController {
         try {
             availableTicket = ticketService.getAvailableTickets();
             returnParams.put("ticketsList", availableTicket);
+            if (enotherPath.length() > 6) {
+                RequestDispatcher rd = request.getRequestDispatcher(enotherPath);
+                request.setAttribute("returnParams", returnParams);
+                rd.forward(request, response);
+            }
         } catch (Exception e) {
             returnParams.put("error", e.getMessage());
-        }
-        if (enotherPath.length() > 6) {
-            RequestDispatcher rd = request.getRequestDispatcher(enotherPath);
-            request.setAttribute("returnParams", returnParams);
-            rd.forward(request, response);
+            log.error(e.getMessage());
         }
         return returnParams;
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/users/{userId}/tickets/book")
     @ResponseBody
-    public Map<String, Object> getJson(@PathVariable String userId, @RequestBody RequestJson requestJson) {
+    public Map<String, Object> bookTicketsByJson(@PathVariable String userId, @RequestBody TicketIdsJson ticketIdsJson) {
         Map<String, Object> response = new HashMap<String, Object>();
         List<Long> bookedTicketIds = new ArrayList<Long>();
         String message = null;
@@ -59,10 +62,10 @@ public class TicketController {
 
             Long longId = Long.parseLong(userId);
             User user = userService.getUserById(longId);
-            List<Ticket> bookedTickets = ticketService.getBookedTicketsByTicketsIds(requestJson.getTicketIds());
+            List<Ticket> bookedTickets = ticketService.getBookedTicketsByTicketsIds(ticketIdsJson.getTicketIds());
             if (bookedTickets.size() == 0) {
                 Ticket ticket = null;
-                for (Long ticketId : requestJson.getTicketIds()) {
+                for (Long ticketId : ticketIdsJson.getTicketIds()) {
                     ticket = ticketService.getTicketById(ticketId);
                     ticketService.bookTicket(ticket, user);
                     bookedTicketIds.add(ticketId);
@@ -78,13 +81,14 @@ public class TicketController {
             }
         } catch (Exception e) {
             response.put("message", e.getMessage());
+            log.error(e.getMessage());
         }
         response.put("message", message);
         return response;
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/users/{userId}/tickets/**")
-    public Map<String, Object> getUserTicket(@PathVariable String userId, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public Map<String, Object> getUserTickets(@PathVariable String userId, HttpServletRequest request, HttpServletResponse response) {
         Map<String, Object> returnParams = new HashMap<String, Object>();
         String remainingPaths = (String) request.getAttribute(HandlerMapping.PATH_WITHIN_HANDLER_MAPPING_ATTRIBUTE);
         String endOfThePath= "tickets";
@@ -95,14 +99,16 @@ public class TicketController {
             List<Ticket> myTickets = ticketService.getTicketsByUser(user);
             returnParams.put("ticketsList", myTickets);
             returnParams.put("user", user);
+            if (enotherPath.length() > 6) {
+                RequestDispatcher rd = request.getRequestDispatcher(enotherPath);
+                request.setAttribute("returnParams", returnParams);
+                rd.forward(request, response);
+            }
         } catch (Exception e) {
             returnParams.put("error", e.getMessage());
+            log.error(e.getMessage());
         }
-        if (enotherPath.length() > 6) {
-            RequestDispatcher rd = request.getRequestDispatcher(enotherPath);
-            request.setAttribute("returnParams", returnParams);
-            rd.forward(request, response);
-        }
+
         return returnParams;
     }
 
@@ -110,7 +116,7 @@ public class TicketController {
 
 
     @RequestMapping(method = RequestMethod.GET, value = "/dateFrom/{dateFrom}/dateTo/{dateTo}/**")
-    public Map<String, Object> filterByDate(HttpServletRequest request, @PathVariable String dateFrom, @PathVariable String dateTo) {
+    public Map<String, Object> filterTicketsByDate(HttpServletRequest request, @PathVariable String dateFrom, @PathVariable String dateTo) {
         Map<String, Object> returnParams = (Map<String, Object>) request.getAttribute("returnParams");
         List<Ticket> availableTicket = (List<Ticket>) returnParams.get("ticketsList");
         try {
@@ -118,12 +124,13 @@ public class TicketController {
             returnParams.put("ticketsList", availableTicket);
         } catch (Exception e) {
             returnParams.put("error", e.getMessage());
+            log.error(e.getMessage());
         }
         return returnParams;
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/title/{title}/**")
-    public Map<String, Object> filterByTitle(HttpServletRequest request, @PathVariable String title) {
+    public Map<String, Object> filterTicketsByTitle(HttpServletRequest request, @PathVariable String title) {
         Map<String, Object> returnParams = (Map<String, Object>) request.getAttribute("returnParams");
         List<Ticket> availableTicket = (List<Ticket>) returnParams.get("ticketsList");
         try {
@@ -131,12 +138,13 @@ public class TicketController {
             returnParams.put("ticketsList", availableTicket);
         } catch (Exception e) {
             returnParams.put("error", e.getMessage());
+            log.error(e.getMessage());
         }
         return returnParams;
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/category/{category}/**")
-    public Map<String, Object> filterByCategory(HttpServletRequest request, @PathVariable String category) {
+    public Map<String, Object> filterTicketsByCategory(HttpServletRequest request, @PathVariable String category) {
         Map<String, Object> returnParams = (Map<String, Object>) request.getAttribute("returnParams");
         List<Ticket> availableTicket = (List<Ticket>) returnParams.get("ticketsList");
         try {
@@ -144,6 +152,7 @@ public class TicketController {
             returnParams.put("ticketsList", availableTicket);
         } catch (Exception e) {
             returnParams.put("error", e.getMessage());
+            log.error(e.getMessage());
         }
         return returnParams;
     }

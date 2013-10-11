@@ -18,6 +18,7 @@ import java.util.List;
 @Service
 public class TicketServiceImpl implements TicketService {
 
+    public static final String DATE_PATTERN = "dd-MM-yy";
     @Autowired
     TicketDao ticketDao;
 
@@ -105,7 +106,7 @@ public class TicketServiceImpl implements TicketService {
         }
         Date dateFromObj = null;
         Date dateToObj = null;
-        SimpleDateFormat format = new SimpleDateFormat("dd-MM-yy");
+        SimpleDateFormat format = new SimpleDateFormat(DATE_PATTERN);
         try {
             dateFromObj = format.parse(dateFrom);
             dateToObj = format.parse(dateTo);
