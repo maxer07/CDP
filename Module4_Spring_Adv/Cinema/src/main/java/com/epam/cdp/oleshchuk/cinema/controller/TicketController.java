@@ -28,7 +28,6 @@ public class TicketController {
     private UserService userService;
     private static final Logger log = Logger.getLogger(TicketController.class);
 
-
     @RequestMapping(method = RequestMethod.GET, value = "/tickets/**")
     public Map<String, Object> getAllTickets(HttpServletRequest request, HttpServletResponse response) {
         Map<String, Object> returnParams = new HashMap<String, Object>();
