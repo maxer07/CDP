@@ -12,10 +12,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.HandlerMapping;
 
 import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -47,7 +45,7 @@ public class TicketController {
             }
         } catch (Exception e) {
             returnParams.put("error", e.getMessage());
-            log.error(e.getMessage());
+            log.error(e.getMessage(), e);
         }
         return returnParams;
     }
@@ -81,7 +79,7 @@ public class TicketController {
             }
         } catch (Exception e) {
             response.put("message", e.getMessage());
-            log.error(e.getMessage());
+            log.error(e.getMessage(), e);
         }
         response.put("message", message);
         return response;
@@ -106,7 +104,7 @@ public class TicketController {
             }
         } catch (Exception e) {
             returnParams.put("error", e.getMessage());
-            log.error(e.getMessage());
+            log.error(e.getMessage(), e);
         }
 
         return returnParams;
@@ -124,7 +122,7 @@ public class TicketController {
             returnParams.put("ticketsList", availableTicket);
         } catch (Exception e) {
             returnParams.put("error", e.getMessage());
-            log.error(e.getMessage());
+            log.error(e.getMessage(), e);
         }
         return returnParams;
     }
@@ -138,7 +136,7 @@ public class TicketController {
             returnParams.put("ticketsList", availableTicket);
         } catch (Exception e) {
             returnParams.put("error", e.getMessage());
-            log.error(e.getMessage());
+            log.error(e.getMessage(), e);
         }
         return returnParams;
     }
@@ -152,7 +150,7 @@ public class TicketController {
             returnParams.put("ticketsList", availableTicket);
         } catch (Exception e) {
             returnParams.put("error", e.getMessage());
-            log.error(e.getMessage());
+            log.error(e.getMessage(), e);
         }
         return returnParams;
     }
