@@ -8,7 +8,7 @@ public class User {
         super();
     }
 
-    public User(Long id, String name){
+    public User(Long id, String name) {
         this.name = name;
         this.id = id;
     }
@@ -45,8 +45,9 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
-                "name='" + name + '\'' +
-                '}';
+        return "User{" + "\r\n" +
+                "id=" + id + "\r\n" +
+                ", name='" + name + '\'' + "\r\n" +
+                "}\\r\\n";
     }
 }

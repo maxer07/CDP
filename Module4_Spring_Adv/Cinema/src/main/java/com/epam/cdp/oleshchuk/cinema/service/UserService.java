@@ -7,6 +7,8 @@ import com.epam.cdp.oleshchuk.cinema.model.User;
 import java.util.List;
 
 public interface UserService {
+
     public User getUserById(Long id) throws ServiceException;
+
     public List<User> getAllUsers();
 }

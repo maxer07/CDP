@@ -1,14 +1,20 @@
-package com.epam.cdp.oleshchuk.cinema.dao;
+package com.epam.cdp.oleshchuk.cinema.dao.storageImpl;
 
+import com.epam.cdp.oleshchuk.cinema.dao.TicketDao;
 import com.epam.cdp.oleshchuk.cinema.exception.DaoException;
 import com.epam.cdp.oleshchuk.cinema.model.Ticket;
 import com.epam.cdp.oleshchuk.cinema.model.TicketCategory;
+import com.epam.cdp.oleshchuk.cinema.model.TicketsFilterParams;
 import com.epam.cdp.oleshchuk.cinema.model.User;
+import com.epam.cdp.oleshchuk.cinema.ticketFilter.TicketFilter;
+import com.epam.cdp.oleshchuk.cinema.ticketFilter.TicketFilterByCategory;
+import com.epam.cdp.oleshchuk.cinema.ticketFilter.TicketFilterByDate;
+import com.epam.cdp.oleshchuk.cinema.ticketFilter.TicketFilterByTitle;
 import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
-@Repository
+@Repository("ticketStorageDao")
 public class TicketStorageDao implements TicketDao {
 
     private static Map<Ticket, User> ticketMap;
@@ -16,66 +22,59 @@ public class TicketStorageDao implements TicketDao {
 
     public TicketStorageDao() {
         ticketMap = new HashMap<Ticket, User>();
-        currId = 0;
         createTickets();
     }
 
-    public List<Ticket> getAvailableTickets() {
+    public List<Ticket> getAvailableTickets(TicketsFilterParams ticketsFilterParams) {
         List<Ticket> freeTickets = new ArrayList<Ticket>();
+        List<Ticket> filteredTickets = new ArrayList<Ticket>();
         for (Map.Entry<Ticket, User> entry : ticketMap.entrySet()) {
             if (entry.getValue() == null) {
                 freeTickets.add(entry.getKey());
             }
         }
-        Collections.sort(freeTickets);
-        return freeTickets;
+        TicketFilter ticketFilter = getTicketFilterChain(ticketsFilterParams);
+        filteredTickets = ticketFilter.doFilter(freeTickets);
+        Collections.sort(filteredTickets);
+        return filteredTickets;
     }
 
-    public List<Ticket> getTicketsByUser(User user) throws DaoException {
+    public List<Ticket> getTicketsByUser(User user, TicketsFilterParams ticketsFilterParams) throws DaoException {
         if (user == null) {
             throw new DaoException("Could not get ticket by user = null");
         }
         List<Ticket> userTickets = new ArrayList<Ticket>();
+        List<Ticket> filteredTickets = new ArrayList<Ticket>();
         for (Map.Entry<Ticket, User> entry : ticketMap.entrySet()) {
             if (user.equals(entry.getValue())) {
                 userTickets.add(entry.getKey());
             }
         }
-        Collections.sort(userTickets);
-        return userTickets;
+        TicketFilter ticketFilter = getTicketFilterChain(ticketsFilterParams);
+        filteredTickets = ticketFilter.doFilter(userTickets);
+        Collections.sort(filteredTickets);
+        return filteredTickets;
     }
 
 
     public Ticket getTicketById(Long id) throws DaoException {
         Ticket ticket = null;
         if (id == null) {
-           throw new DaoException("Get ticket Id is null");
-       }
+            throw new DaoException("Get ticket Id is null");
+        }
         for (Map.Entry<Ticket, User> entry : ticketMap.entrySet()) {
-            if (entry.getKey().getId()==id) {
+            if (entry.getKey().getId() == id) {
                 ticket = entry.getKey();
                 break;
             }
         }
-        if (ticket==null) {
+        if (ticket == null) {
             throw new DaoException("There is no ticket with id=" + id);
         }
         return ticket;
     }
 
-    public synchronized void bookTicket(Ticket ticket, User user) throws DaoException {
-        if (ticketMap.get(ticket)!=null) {
-            throw new DaoException(ticket + " is already booked");
-        }
-        if (ticket!=null && user != null) {
-            ticketMap.put(ticket, user);
-        }
-        else {
-            throw new DaoException("Ticket or user is null: ticket = " + ticket + ", user = " + user);
-        }
-    }
-
-    public List<Ticket> getBookedTicketsByTicketIds(List<Long> ticketIds) throws DaoException {
+    public synchronized void bookTicket(List<Long> ticketIds, User user) throws DaoException {
         if (ticketIds == null) {
             throw new DaoException("Ticket ids is null");
         }
@@ -83,11 +82,25 @@ public class TicketStorageDao implements TicketDao {
         Ticket ticket;
         for (Long id : ticketIds) {
             ticket = getTicketById(id);
-            if (ticketMap.get(ticket)!=null) {
+            if (ticketMap.get(ticket) != null) {
                 bookedTickets.add(ticket);
             }
         }
-        return bookedTickets;
+        if (bookedTickets.size() == 0) {
+            for (Long ticketId : ticketIds) {
+                ticket = getTicketById(ticketId);
+                if (ticketMap.get(ticket) != null) {
+                    throw new DaoException(ticket + " is already booked");
+                }
+                if (ticket != null && user != null) {
+                    ticketMap.put(ticket, user);
+                } else {
+                    throw new DaoException("Ticket or user is null: ticket = " + ticket + ", user = " + user);
+                }
+            }
+        } else {
+            throw new DaoException("Tickets already booked : " + bookedTickets);
+        }
     }
 
     private void createTickets() {
@@ -112,5 +125,14 @@ public class TicketStorageDao implements TicketDao {
 
     private synchronized long getNextId() {
         return currId++;
+    }
+
+    private TicketFilter getTicketFilterChain(TicketsFilterParams ticketsFilterParams) {
+        TicketFilter filterByTitle = new TicketFilterByTitle(ticketsFilterParams.getTitle());
+        TicketFilter filterByCategory = new TicketFilterByCategory(ticketsFilterParams.getCategory());
+        TicketFilter filterByDate = new TicketFilterByDate(ticketsFilterParams.getDateFrom(), ticketsFilterParams.getDateTo());
+        filterByCategory.setNextChain(filterByDate);
+        filterByTitle.setNextChain(filterByCategory);
+        return filterByTitle;
     }
 }

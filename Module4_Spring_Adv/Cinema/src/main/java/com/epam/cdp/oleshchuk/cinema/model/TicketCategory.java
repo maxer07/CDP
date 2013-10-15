@@ -5,7 +5,7 @@ public enum TicketCategory {
 
     private final int priority;
 
-    private TicketCategory(int prior){
+    private TicketCategory(int prior) {
         priority = prior;
     }
 

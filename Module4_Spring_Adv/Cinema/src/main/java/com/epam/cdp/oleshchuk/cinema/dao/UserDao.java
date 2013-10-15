@@ -8,6 +8,8 @@ import java.util.List;
 
 @Repository
 public interface UserDao {
+
     public User getUserById(Long id) throws DaoException;
+
     public List<User> getAllUsers();
 }

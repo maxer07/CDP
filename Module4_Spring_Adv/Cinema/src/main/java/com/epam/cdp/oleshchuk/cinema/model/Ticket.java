@@ -1,6 +1,5 @@
 package com.epam.cdp.oleshchuk.cinema.model;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Ticket implements Comparable<Ticket> {
@@ -95,12 +94,11 @@ public class Ticket implements Comparable<Ticket> {
     @Override
     public String toString() {
         return "Ticket{" +
-                "title='" + title + '\'' +
-                ", date=" + new SimpleDateFormat("dd/MM/yy").format(date) +
-                ", ticketCategory=" + ticketCategory +
-                ", place=" + place +
-                '}';
+                "id=" + id + "\r\n" +
+                ", title='" + title + '\'' + "\r\n" +
+                ", date=" + date +
+                ", ticketCategory=" + ticketCategory + "\r\n" +
+                ", place=" + place + "\r\n" +
+                "}\r\n";
     }
-
-
 }

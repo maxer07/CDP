@@ -1,5 +1,6 @@
-package com.epam.cdp.oleshchuk.cinema.dao;
+package com.epam.cdp.oleshchuk.cinema.dao.storageImpl;
 
+import com.epam.cdp.oleshchuk.cinema.dao.UserDao;
 import com.epam.cdp.oleshchuk.cinema.exception.DaoException;
 import com.epam.cdp.oleshchuk.cinema.model.User;
 import org.springframework.stereotype.Repository;
@@ -10,7 +11,7 @@ import java.util.List;
 import java.util.Map;
 
 
-@Repository
+@Repository("userStorageDao")
 public class UserStorageDao implements UserDao {
 
     private static Map<Long, User> userMap;
@@ -25,11 +26,9 @@ public class UserStorageDao implements UserDao {
     public User getUserById(Long id) throws DaoException {
         if (id == null) {
             throw new DaoException("id is null");
-        }
-        else if (!userMap.containsKey(id)) {
+        } else if (!userMap.containsKey(id)) {
             throw new DaoException("There is no user with id = " + id);
-        }
-        else {
+        } else {
             return userMap.get(id);
         }
     }
@@ -37,9 +36,9 @@ public class UserStorageDao implements UserDao {
     public List<User> getAllUsers() {
         List<User> userList = new ArrayList<User>();
         User user = null;
-        for (Map.Entry<Long, User> entry : userMap.entrySet()){
+        for (Map.Entry<Long, User> entry : userMap.entrySet()) {
             user = entry.getValue();
-            if (user!=null) {
+            if (user != null) {
                 userList.add(user);
             }
         }

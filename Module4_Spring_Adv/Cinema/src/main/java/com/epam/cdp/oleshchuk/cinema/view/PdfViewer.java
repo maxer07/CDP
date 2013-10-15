@@ -49,7 +49,7 @@ public class PdfViewer extends AbstractPdfView {
             table.addCell(createHeaderCell("Place"));
 
             for (Ticket ticket : tickets) {
-                table.addCell(createCell(new SimpleDateFormat("dd/MM/yy").format(ticket.getDate())));
+                table.addCell(createCell(new SimpleDateFormat("yyyy-MM-dd").format(ticket.getDate())));
                 table.addCell(createCell(ticket.getTitle()));
                 table.addCell(createCell(ticket.getTicketCategory().toString()));
                 table.addCell(createCell(ticket.getPlace().toString()));
