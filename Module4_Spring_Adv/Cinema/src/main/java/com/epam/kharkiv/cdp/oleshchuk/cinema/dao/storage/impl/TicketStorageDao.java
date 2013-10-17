@@ -6,10 +6,10 @@ import com.epam.kharkiv.cdp.oleshchuk.cinema.model.Ticket;
 import com.epam.kharkiv.cdp.oleshchuk.cinema.model.TicketCategory;
 import com.epam.kharkiv.cdp.oleshchuk.cinema.model.TicketsFilterParams;
 import com.epam.kharkiv.cdp.oleshchuk.cinema.model.User;
-import com.epam.kharkiv.cdp.oleshchuk.cinema.dao.storage.ticketFilter.TicketFilter;
-import com.epam.kharkiv.cdp.oleshchuk.cinema.dao.storage.ticketFilter.TicketFilterByCategory;
-import com.epam.kharkiv.cdp.oleshchuk.cinema.dao.storage.ticketFilter.TicketFilterByDate;
-import com.epam.kharkiv.cdp.oleshchuk.cinema.dao.storage.ticketFilter.TicketFilterByTitle;
+import com.epam.kharkiv.cdp.oleshchuk.cinema.dao.storage.filter.TicketFilter;
+import com.epam.kharkiv.cdp.oleshchuk.cinema.dao.storage.filter.TicketFilterByCategory;
+import com.epam.kharkiv.cdp.oleshchuk.cinema.dao.storage.filter.TicketFilterByDate;
+import com.epam.kharkiv.cdp.oleshchuk.cinema.dao.storage.filter.TicketFilterByTitle;
 import org.springframework.stereotype.Repository;
 
 import java.util.*;

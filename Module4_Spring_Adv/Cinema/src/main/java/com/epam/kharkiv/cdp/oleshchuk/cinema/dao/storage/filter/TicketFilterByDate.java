@@ -1,4 +1,4 @@
-package com.epam.kharkiv.cdp.oleshchuk.cinema.dao.storage.ticketFilter;
+package com.epam.kharkiv.cdp.oleshchuk.cinema.dao.storage.filter;
 
 import com.epam.kharkiv.cdp.oleshchuk.cinema.model.Ticket;
 
