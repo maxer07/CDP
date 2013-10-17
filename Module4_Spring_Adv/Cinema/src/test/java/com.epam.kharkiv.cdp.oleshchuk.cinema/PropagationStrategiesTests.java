@@ -31,10 +31,10 @@ public class PropagationStrategiesTests {
         checkResultOfTransaction(1);
     }
 
-    @Test(expected = Exception.class)
+    @Test
     public void inserUserWithReadOnlyAndRequiredPropagation() {
         userService.insertUserReadOnlyPropagationRequired("testUser2");
-        checkResultOfTransaction(0);
+        checkResultOfTransaction(1);
     }
 
     @Test(expected = Exception.class)
@@ -59,4 +59,5 @@ public class PropagationStrategiesTests {
     public void cleanDB() {
         userService.cleanTable();
     }
+
 }
