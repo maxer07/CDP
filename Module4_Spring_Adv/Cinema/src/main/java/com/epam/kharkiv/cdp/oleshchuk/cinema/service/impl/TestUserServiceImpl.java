@@ -8,7 +8,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
-@Transactional(rollbackFor = Exception.class)
+@Transactional
 public class TestUserServiceImpl implements TestUserService {
 
     @Autowired
@@ -25,15 +25,10 @@ public class TestUserServiceImpl implements TestUserService {
     }
 
     @Transactional(propagation = Propagation.REQUIRES_NEW)
-    public void cleanTable() {
-        userDao.cleanAllTable();
-    }
-
-    @Transactional(propagation = Propagation.REQUIRES_NEW)
     public void insertUserPropagationRequiresNew(String userName) throws Exception{
         userDao.insertUser(userName);
         insertUserPropagationRequiresNewInner("innerUserName");
-        throw new Exception("Something going wrong");
+        throw new RuntimeException("Something going wrong");
     }
 
     @Transactional(propagation = Propagation.REQUIRES_NEW)
@@ -90,6 +85,11 @@ public class TestUserServiceImpl implements TestUserService {
 
     public int getAllCount() {
         return userDao.getAllCount();
+    }
+
+    @Transactional(propagation = Propagation.REQUIRES_NEW)
+    public void cleanTable() {
+        userDao.cleanAllTable();
     }
 
 }

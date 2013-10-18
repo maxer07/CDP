@@ -46,7 +46,7 @@ public class PropagationStrategiesTests {
     @Test(expected = Exception.class)
     public void insertUserOuterRequiresNewInnerRequiresNewAndOuterThrowsException() throws Exception {
         userService.insertUserPropagationRequiresNew("outerUser");
-        checkResultOfTransaction(2);
+        checkResultOfTransaction(1);
     }
 
     @Test(expected = Exception.class)
