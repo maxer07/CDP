@@ -13,6 +13,12 @@ public interface TestUserService {
 
     public int getAllCount();
 
-    public void testRequired(String userName) throws Exception;
+    public void testRequiredWithRequiresNew(String userName) throws Exception;
+
+    public void testRequiredWithSupports(String userName) throws Exception;
+
+    public void testRequiredWithRequired(String userName) throws Exception;
+
+    public void testRequiredWithNestedAndThrowException(String userName) throws Exception;
 
 }

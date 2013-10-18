@@ -5,6 +5,10 @@
          metadata-complete="true">
 
     <display-name>Cinema</display-name>
+    
+    <welcome-file-list>
+        <welcome-file>/tickets</welcome-file>
+    </welcome-file-list>
 
     <servlet>
         <servlet-name>mvc-dispatcher</servlet-name>
@@ -30,6 +34,4 @@
         <servlet-name>H2Console</servlet-name>
         <url-pattern>/console/*</url-pattern>
     </servlet-mapping>
-
-
 </web-app>

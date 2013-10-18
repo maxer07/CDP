@@ -38,15 +38,32 @@ public class PropagationStrategiesTests {
     }
 
     @Test(expected = Exception.class)
+    public void insertUserOuterRequiredInnerRequiresNewAndInnerThrowsRuntimeException() throws Exception {
+        userService.testRequiredWithRequiresNew("requiresNewUser");
+        checkResultOfTransaction(0);
+    }
+
+    @Test(expected = Exception.class)
     public void insertUserOuterRequiresNewInnerRequiresNewAndOuterThrowsException() throws Exception {
         userService.insertUserPropagationRequiresNew("outerUser");
         checkResultOfTransaction(2);
     }
 
+    @Test(expected = Exception.class)
+    public void insertUserOuterRequiredInnerSupportsAndInnerThrowsRuntimeException() throws Exception {
+        userService.testRequiredWithSupports("supportsUser");
+        checkResultOfTransaction(0);
+    }
 
     @Test(expected = Exception.class)
-    public void insertUserOuterRequiredInnerRequiresNewAndInnerThrowsRuntimeException() throws Exception {
-        userService.testRequired("requiresNewUser");
+    public void insertUserOuterRequiredInnerRequiredAndInnerThrowsRuntimeException() throws Exception {
+        userService.testRequiredWithRequired("requiredUser");
+        checkResultOfTransaction(0);
+    }
+
+    @Test(expected = Exception.class)
+    public void insertUserOuterRequiredInnerNestedAndOuterThrowsRuntimeException() throws Exception {
+        userService.testRequiredWithNestedAndThrowException("nestedUser");
         checkResultOfTransaction(0);
     }
 
