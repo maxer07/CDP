@@ -1,8 +1,8 @@
 package com.epam.kharkiv.cdp.oleshchuk.cinema.dao.jdbc.impl;
 
 import com.epam.kharkiv.cdp.oleshchuk.cinema.dao.UserDao;
-import com.epam.kharkiv.cdp.oleshchuk.cinema.exception.DaoException;
 import com.epam.kharkiv.cdp.oleshchuk.cinema.dao.jdbc.mapper.UserRowMapper;
+import com.epam.kharkiv.cdp.oleshchuk.cinema.exception.DaoException;
 import com.epam.kharkiv.cdp.oleshchuk.cinema.model.User;
 import org.springframework.stereotype.Repository;
 

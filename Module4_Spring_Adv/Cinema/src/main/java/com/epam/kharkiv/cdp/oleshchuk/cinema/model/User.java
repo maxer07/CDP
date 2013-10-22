@@ -1,8 +1,26 @@
 package com.epam.kharkiv.cdp.oleshchuk.cinema.model;
 
-public class User {
+import org.codehaus.jackson.annotate.JsonIgnore;
+
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
+
+@Entity
+@Table(name = "user")
+public class User implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
+
+    @Column(name = "name")
     private String name;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    @JsonIgnore
+    private Set<Ticket> tickets = new HashSet<Ticket>();
 
     public User() {
         super();
@@ -12,6 +30,7 @@ public class User {
         this.name = name;
         this.id = id;
     }
+
 
     public Long getId() {
         return id;
@@ -27,6 +46,23 @@ public class User {
 
     public String getName() {
         return name;
+    }
+
+    public Set<Ticket> getTickets() {
+        return tickets;
+    }
+
+    public void setTickets(Set<Ticket> tickets) {
+        this.tickets = tickets;
+    }
+
+    public void addTicket(Ticket ticket){
+        ticket.setUser(this);
+        this.getTickets().add(ticket);
+    }
+
+    public void removeTicket(Ticket ticket) {
+        this.getTickets().remove(ticket);
     }
 
     @Override
@@ -50,4 +86,5 @@ public class User {
                 ", name='" + name + '\'' + "\r\n" +
                 "}\\r\\n";
     }
+
 }

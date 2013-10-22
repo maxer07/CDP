@@ -3,7 +3,6 @@ package com.epam.kharkiv.cdp.oleshchuk.cinema;
 import com.epam.kharkiv.cdp.oleshchuk.cinema.service.TestUserService;
 import junit.framework.Assert;
 import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,21 +18,15 @@ public class PropagationStrategiesTests {
     @Autowired
     private TestUserService userService;
 
-
-    @Before
-    public void cleanDBBefore() {
-        userService.cleanTable();
+    @Test
+    public void inserUserWithReadOnlyAndRequiredPropagation() {
+        userService.insertUserReadOnlyPropagationRequired("testUser");
+        checkResultOfTransaction(0);
     }
 
     @Test
     public void inserUserWithReadOnlyAndSupportsPropagation() {
         userService.insertUserReadOnlyPropagationSupports("testUser");
-        checkResultOfTransaction(1);
-    }
-
-    @Test
-    public void inserUserWithReadOnlyAndRequiredPropagation() {
-        userService.insertUserReadOnlyPropagationRequired("testUser2");
         checkResultOfTransaction(1);
     }
 
@@ -68,7 +61,8 @@ public class PropagationStrategiesTests {
     }
 
     private void checkResultOfTransaction(int expectedRawCounts) {
-        int realCount = userService.getAllCount();
+        long realCount = userService.getAllCount();
+        System.out.println("real" + realCount + " expected" + expectedRawCounts);
         Assert.assertEquals(expectedRawCounts, realCount);
     }
 

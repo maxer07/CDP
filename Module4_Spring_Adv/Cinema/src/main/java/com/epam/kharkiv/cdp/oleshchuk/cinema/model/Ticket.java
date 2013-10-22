@@ -1,14 +1,38 @@
 package com.epam.kharkiv.cdp.oleshchuk.cinema.model;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
+
+import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
-public class Ticket implements Comparable<Ticket> {
+@Entity
+@Table(name = "ticket")
+public class Ticket implements Comparable<Ticket>, Serializable {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
+
+    @Column(name = "title")
     private String title;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "date")
     private Date date;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "category")
     private TicketCategory category;
+
+    @Column(name = "place")
     private Integer place;
+
+    @ManyToOne (fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    @JsonIgnore
+    private User user;
 
     public Ticket() {
         super();
@@ -41,7 +65,12 @@ public class Ticket implements Comparable<Ticket> {
         this.place = place;
     }
 
+    public void setCategory(TicketCategory category) {
+        this.category = category;
+    }
+
     public Long getId() {
+
         return id;
     }
 
@@ -59,6 +88,14 @@ public class Ticket implements Comparable<Ticket> {
 
     public Integer getPlace() {
         return place;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     @Override

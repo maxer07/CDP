@@ -17,11 +17,7 @@
 
     <context:component-scan base-package="com.epam.kharkiv.cdp.oleshchuk.cinema"/>
     <mvc:annotation-driven/>
-    <tx:annotation-driven transaction-manager="txManager"/>
-
-    <bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-        <property name="dataSource" ref="dataSource"/>
-    </bean>
+    <tx:annotation-driven transaction-manager="transactionManager"/>
 
     <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
         <property name="order" value="1"/>
@@ -58,12 +54,37 @@
         <jdbc:script location="classpath:initDB.sql"/>
     </jdbc:initialize-database>
 
-    <bean id="jdbcTemplate"
+
+<!--    <bean id="jdbcTemplate"
           class="org.springframework.jdbc.core.JdbcTemplate">
         <property name="dataSource" ref="dataSource"/>
     </bean>
 
-    <alias name="ticketJdbcMySqlDao" alias="aliasTicketDao"/>
-    <alias name="userJdbcMySqlDao" alias="aliasUserDao"/>
+    <bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>-->
+
+    <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="packagesToScan" value="com.epam.kharkiv.cdp.oleshchuk.cinema"/>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.H2Dialect</prop>
+                <prop key="hibernate.max_fetch_depth">3</prop>
+                <prop key="hibernate.jdbc.fetch_size">50</prop>
+                <prop key="hibernate.jdbc.batch_size">10</prop>
+                <prop key="hibernate.show_sql">true</prop>
+            </props>
+        </property>
+    </bean>
+
+
+    <alias name="ticketHibernateDao" alias="aliasTicketDao"/>
+    <alias name="userHibernateDao" alias="aliasUserDao"/>
+    <alias name="testUserHibernateDao" alias="aliasTestUserDao"/>
 
 </beans>

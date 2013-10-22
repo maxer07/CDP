@@ -11,10 +11,6 @@ public class TicketIdsJson implements Serializable {
         return ticketIds;
     }
 
-    public void setTicketIds(List<Long> ticketIds) {
-        this.ticketIds = ticketIds;
-    }
-
     @Override
     public String toString() {
         return "RequestJson{" +

@@ -16,15 +16,19 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
-@Transactional(readOnly = true, rollbackFor = Exception.class)
+@Transactional(readOnly = true)
 public class TicketServiceImpl implements TicketService {
 
     @Autowired
     @Qualifier(value = "aliasTicketDao")
     TicketDao ticketDao;
 
-    public List<Ticket> getAvailableTickets(TicketsFilterParams ticketsFilterParams) {
-        return ticketDao.getAvailableTickets(ticketsFilterParams);
+    public List<Ticket> getAvailableTickets(TicketsFilterParams ticketsFilterParams) throws ServiceException {
+        try {
+            return ticketDao.getAvailableTickets(ticketsFilterParams);
+        } catch (DaoException e) {
+            throw new ServiceException(e.getMessage(), e);
+        }
     }
 
     public Ticket getTicketById(Long id) throws ServiceException {

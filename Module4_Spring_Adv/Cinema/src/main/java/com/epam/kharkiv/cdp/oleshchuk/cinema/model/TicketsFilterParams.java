@@ -6,9 +6,6 @@ public class TicketsFilterParams {
     private String dateFrom;
     private String dateTo;
 
-    public TicketsFilterParams() {
-    }
-
     public TicketsFilterParams(String title, String category, String dateFrom, String dateTo) {
         this.title = title;
         this.category = category;

@@ -1,12 +1,12 @@
 package com.epam.kharkiv.cdp.oleshchuk.cinema.dao.jdbc.impl;
 
 import com.epam.kharkiv.cdp.oleshchuk.cinema.dao.TicketDao;
-import com.epam.kharkiv.cdp.oleshchuk.cinema.exception.DaoException;
 import com.epam.kharkiv.cdp.oleshchuk.cinema.dao.jdbc.mapper.TicketRowMapper;
+import com.epam.kharkiv.cdp.oleshchuk.cinema.dao.jdbc.util.QueryBuilderUtil;
+import com.epam.kharkiv.cdp.oleshchuk.cinema.exception.DaoException;
 import com.epam.kharkiv.cdp.oleshchuk.cinema.model.Ticket;
 import com.epam.kharkiv.cdp.oleshchuk.cinema.model.TicketsFilterParams;
 import com.epam.kharkiv.cdp.oleshchuk.cinema.model.User;
-import com.epam.kharkiv.cdp.oleshchuk.cinema.dao.jdbc.util.QueryBuilderUtil;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

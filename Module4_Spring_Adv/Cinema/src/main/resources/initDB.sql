@@ -1,9 +1,6 @@
 -- Дамп данных таблицы cinema.user: ~3 rows (приблизительно)
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` ( `name`) VALUES
-	('max'),
-	('dima'),
-	('sanya');
+
 
 -- Дамп данных таблицы cinema.test_user: ~0 rows (приблизительно)
 DELETE FROM `test_user`;
@@ -37,8 +34,11 @@ INSERT INTO `ticket` (`id`, `title`, `date`, `category`, `place`, `user_id`) VAL
 	(19, 'Shaolin football', '2013-10-20 00:00:00', 'BAR', 9, NULL),
 	(20, 'Shaolin football', '2013-10-20 00:00:00', 'BAR', 10, NULL);
 /*!40000 ALTER TABLE `ticket` ENABLE KEYS */;
-
-
+  DELETE FROM `user`;
+  INSERT INTO `user` ( `name`) VALUES
+	('max'),
+	('dima'),
+	('sanya');
 
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

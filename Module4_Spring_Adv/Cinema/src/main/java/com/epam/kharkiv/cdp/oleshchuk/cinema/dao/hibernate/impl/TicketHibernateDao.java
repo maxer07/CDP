@@ -1,0 +1,101 @@
+package com.epam.kharkiv.cdp.oleshchuk.cinema.dao.hibernate.impl;
+
+import com.epam.kharkiv.cdp.oleshchuk.cinema.dao.TicketDao;
+import com.epam.kharkiv.cdp.oleshchuk.cinema.exception.DaoException;
+import com.epam.kharkiv.cdp.oleshchuk.cinema.model.Ticket;
+import com.epam.kharkiv.cdp.oleshchuk.cinema.model.TicketsFilterParams;
+import com.epam.kharkiv.cdp.oleshchuk.cinema.model.User;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import java.util.ArrayList;
+import java.util.List;
+
+@Repository
+public class TicketHibernateDao extends AbstractHibernateDao<Ticket, Long> implements TicketDao {
+
+    @Override
+    public List<Ticket> getAvailableTickets(TicketsFilterParams ticketsFilterParams) throws DaoException {
+        String HQL = createHibernateQueryWithFilterParams("from Ticket t where t.user is null", ticketsFilterParams);
+        try {
+            return sessionFactory.getCurrentSession().createQuery(HQL).list();
+        } catch (Exception e) {
+            throw new DaoException("Sorry, you have entered bad params");
+        }
+    }
+
+    @Override
+    public Ticket getTicketById(Long id) throws DaoException {
+        return findById(id);
+    }
+
+
+    @Override
+    public synchronized void bookTicket(List<Long> ticketIds, User user) throws DaoException {
+        List<Ticket> bookedTicketsList = new ArrayList<Ticket>();
+        for (Long ticketId : ticketIds) {
+            Ticket ticket = (Ticket) sessionFactory.getCurrentSession().createQuery("from Ticket t where t.user is not null and t.id = :ticketId").setParameter("ticketId", ticketId).uniqueResult();
+            if (ticket != null) {
+                bookedTicketsList.add(ticket);
+            }
+        }
+        if (bookedTicketsList.size() == 0) {
+            for (Long ticketId : ticketIds) {
+                Ticket ticket = findById(ticketId);
+                ticket.setUser(user);
+                saveOrUpdate(ticket);
+            }
+        } else {
+            throw new DaoException("Tickets already booked : " + bookedTicketsList);
+        }
+    }
+
+    @Override
+    public List<Ticket> getTicketsByUser(User user, TicketsFilterParams ticketsFilterParams) throws DaoException {
+        if (user == null) {
+            throw new DaoException("User with such id is unavailable");
+        }
+        String HQL = createHibernateQueryWithFilterParams("from Ticket t where t.user.id = :userId", ticketsFilterParams);
+        try {
+            return sessionFactory.getCurrentSession().createQuery(HQL).setParameter("userId", user.getId()).list();
+        } catch (Exception e) {
+            throw new DaoException("Sorry, you have entered bad params");
+        }
+    }
+
+    private String createHibernateQueryWithFilterParams(String hql, TicketsFilterParams ticketsFilterParams) {
+        StringBuilder stringBuilder = new StringBuilder(hql);
+        if (ticketsFilterParams.getTitle() != null) {
+            createAndConditionForString(stringBuilder, ticketsFilterParams.getTitle(), "title");
+        }
+        if (ticketsFilterParams.getCategory() != null) {
+            createAndConditionForString(stringBuilder, ticketsFilterParams.getCategory(), "category");
+        }
+        if (ticketsFilterParams.getDateFrom() != null) {
+            createAndConditionForDateFrom(stringBuilder, ticketsFilterParams.getDateFrom(), "date");
+        }
+        if (ticketsFilterParams.getDateTo() != null) {
+            createAndConditionForDateTo(stringBuilder, ticketsFilterParams.getDateTo(), "date");
+        }
+        return stringBuilder.toString();
+
+    }
+
+    private static void createAndConditionForString(StringBuilder stringBuilder, String filterParam, String rawName) {
+        stringBuilder.append(" AND (lower(t.").append(rawName).append(") like lower('%").append(filterParam).append("%'))");
+    }
+
+    private static void createAndConditionForDateFrom(StringBuilder stringBuilder, String filterParam, String rawName) {
+        stringBuilder.append(" AND (t.").append(rawName).append(" >= '").append(filterParam).append("')");
+    }
+
+    private static void createAndConditionForDateTo(StringBuilder stringBuilder, String filterParam, String rawName) {
+        stringBuilder.append(" AND (t.").append(rawName).append(" <= '").append(filterParam).append("')");
+    }
+
+    @Override
+    protected Class<Ticket> getEntityClass() {
+        return Ticket.class;
+    }
+}

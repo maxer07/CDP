@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface TicketDao {
 
-    public List<Ticket> getAvailableTickets(TicketsFilterParams ticketsFilterParams);
+    public List<Ticket> getAvailableTickets(TicketsFilterParams ticketsFilterParams) throws DaoException;
 
     public Ticket getTicketById(Long id) throws DaoException;
 

@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface TicketService {
 
-    public List<Ticket> getAvailableTickets(TicketsFilterParams ticketsFilterParams);
+    public List<Ticket> getAvailableTickets(TicketsFilterParams ticketsFilterParams) throws ServiceException;
 
     public void bookTicket(List<Long> ticketIds, User user) throws ServiceException;
 

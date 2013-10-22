@@ -11,7 +11,7 @@ public interface TestUserService {
 
     public void insertUserPropagationRequiresNew(String userName) throws Exception;
 
-    public int getAllCount();
+    public long getAllCount();
 
     public void testRequiredWithRequiresNew(String userName) throws Exception;
 

@@ -7,7 +7,7 @@ import org.springframework.jdbc.core.RowMapper;
 
 public abstract class AbstractJdbcMySqlDao {
 
-    @Autowired
+    @Autowired(required = false)
     protected JdbcTemplate jdbcTemplateObject;
     protected RowMapper rowMapper;
 

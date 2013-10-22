@@ -8,5 +8,4 @@ import org.springframework.stereotype.Repository;
 public interface UserDao {
 
     public User getUserById(Long id) throws DaoException;
-
 }
