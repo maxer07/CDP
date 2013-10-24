@@ -2,13 +2,6 @@
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
 
 
--- Дамп данных таблицы cinema.test_user: ~0 rows (приблизительно)
-DELETE FROM `test_user`;
-/*!40000 ALTER TABLE `test_user` DISABLE KEYS */;
-/*!40000 ALTER TABLE `test_user` ENABLE KEYS */;
-
-
-
 -- Дамп данных таблицы cinema.ticket: ~20 rows (приблизительно)
 DELETE FROM `ticket`;
 /*!40000 ALTER TABLE `ticket` DISABLE KEYS */;

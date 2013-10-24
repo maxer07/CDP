@@ -13,14 +13,17 @@ import java.util.List;
 
 
 @Repository
-public class TicketJdbcMySqlDao extends AbstractJdbcMySqlDao implements TicketDao {
+public class TicketJdbcMySqlDao extends AbstractJdbcMySqlDao<Ticket, Long> implements TicketDao {
 
     private static final String SQL__TICKET_TABLE = "ticket";
-    private static final String SQL__QUERY__TICKET_GET_ALL = "SELECT * FROM " + SQL__TICKET_TABLE + " WHERE user_id is NULL";
-    private static final String SQL__QUERY__TICKET_GET_BY_USER = "SELECT * FROM " + SQL__TICKET_TABLE + " WHERE user_id = ?";
-    private static final String SQL__QUERY__TICKET_BOOK_BY_USER = "UPDATE " + SQL__TICKET_TABLE + " SET user_id = ? WHERE id = ?";
-    private static final String SQL__QUERY__TICKET_GET_BOOKED_BY_TICKET_IDS = "SELECT * FROM ticket WHERE (user_id is NOT NULL) AND (id IN (?))";
-
+    private static final String SQL__QUERY__TICKET_GET_ALL = "SELECT * FROM " + SQL__TICKET_TABLE +
+                                                                " WHERE user_id is NULL";
+    private static final String SQL__QUERY__TICKET_GET_BY_USER = "SELECT * FROM " + SQL__TICKET_TABLE +
+                                                                     " WHERE user_id = ?";
+    private static final String SQL__QUERY__TICKET_BOOK_BY_USER = "UPDATE " + SQL__TICKET_TABLE +
+                                                                    " SET user_id = ? WHERE id = ?";
+    private static final String SQL__QUERY__TICKET_GET_BOOKED_BY_TICKET_IDS = "SELECT * FROM " + SQL__TICKET_TABLE
+                                                                + " WHERE (user_id is NOT NULL) AND (id IN (?))";
 
     public TicketJdbcMySqlDao() {
         rowMapper = new TicketRowMapper();
@@ -33,14 +36,12 @@ public class TicketJdbcMySqlDao extends AbstractJdbcMySqlDao implements TicketDa
         return ticketList;
     }
 
-    @Override
-    public Ticket getTicketById(Long id) throws DaoException {
-        return (Ticket) super.findById(id);
-    }
+
 
     @Override
     public synchronized void bookTicket(List<Long> ticketIds, User user) throws DaoException {
-        String SQL = QueryBuilderUtil.createQueryWithInCause(SQL__QUERY__TICKET_GET_BOOKED_BY_TICKET_IDS, ticketIds.size());
+        String SQL = QueryBuilderUtil.createQueryWithInCause(SQL__QUERY__TICKET_GET_BOOKED_BY_TICKET_IDS,
+                                                             ticketIds.size());
         List<Ticket> bookedTicketsList = jdbcTemplateObject.query(SQL, ticketIds.toArray(), rowMapper);
         if (bookedTicketsList.size() == 0) {
             SQL = SQL__QUERY__TICKET_BOOK_BY_USER;
@@ -82,15 +83,15 @@ public class TicketJdbcMySqlDao extends AbstractJdbcMySqlDao implements TicketDa
 
     }
 
-    private static void createAndConditionForString(StringBuilder stringBuilder, String filterParam, String rawName) {
+    private void createAndConditionForString(StringBuilder stringBuilder, String filterParam, String rawName) {
         stringBuilder.append(" AND (").append(rawName).append(" LIKE '%").append(filterParam).append("%')");
     }
 
-    private static void createAndConditionForDateFrom(StringBuilder stringBuilder, String filterParam, String rawName) {
+    private void createAndConditionForDateFrom(StringBuilder stringBuilder, String filterParam, String rawName) {
         stringBuilder.append(" AND (").append(rawName).append(" >= '").append(filterParam).append("')");
     }
 
-    private static void createAndConditionForDateTo(StringBuilder stringBuilder, String filterParam, String rawName) {
+    private void createAndConditionForDateTo(StringBuilder stringBuilder, String filterParam, String rawName) {
         stringBuilder.append(" AND (").append(rawName).append(" <= '").append(filterParam).append("')");
     }
 }

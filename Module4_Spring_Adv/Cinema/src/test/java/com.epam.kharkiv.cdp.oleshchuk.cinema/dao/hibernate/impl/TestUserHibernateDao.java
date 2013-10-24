@@ -1,35 +1,34 @@
 package com.epam.kharkiv.cdp.oleshchuk.cinema.dao.hibernate.impl;
 
 import com.epam.kharkiv.cdp.oleshchuk.cinema.dao.TestUserDao;
-import com.epam.kharkiv.cdp.oleshchuk.cinema.model.TestUser;
-import org.hibernate.SessionFactory;
+import com.epam.kharkiv.cdp.oleshchuk.cinema.model.User;
 import org.hibernate.criterion.Projections;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 @Transactional
 @Repository
-public class TestUserHibernateDao extends AbstractHibernateDao implements TestUserDao{
+public class TestUserHibernateDao extends AbstractHibernateDao<User, Long> implements TestUserDao {
 
     @Override
     public void insertUser(String userName) {
-        TestUser tempUser = new TestUser(1L, userName);
+        User tempUser = new User(1L, userName);
         saveOrUpdate(tempUser);
     }
 
     @Override
     public void cleanAllTable() {
-       sessionFactory.getCurrentSession().createQuery("delete from TestUser").executeUpdate();
+       sessionFactory.getCurrentSession().createQuery("delete from User").executeUpdate();
     }
 
     @Override
     public long getAllCount() {
-        return (Long) sessionFactory.getCurrentSession().createCriteria(TestUser.class).setProjection(Projections.rowCount()).uniqueResult();
+        return (Long) sessionFactory.getCurrentSession().createCriteria(User.class).
+                setProjection(Projections.rowCount()).uniqueResult();
     }
 
     @Override
     protected Class getEntityClass() {
-        return TestUser.class;
+        return User.class;
     }
 }

@@ -11,7 +11,7 @@ public interface TicketDao {
 
     public List<Ticket> getAvailableTickets(TicketsFilterParams ticketsFilterParams) throws DaoException;
 
-    public Ticket getTicketById(Long id) throws DaoException;
+    public Ticket findById(Long id) throws DaoException;
 
     public void bookTicket(List<Long> ticketIds, User user) throws DaoException;
 

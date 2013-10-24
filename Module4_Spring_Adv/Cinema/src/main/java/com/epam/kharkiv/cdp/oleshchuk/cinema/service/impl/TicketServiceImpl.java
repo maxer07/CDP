@@ -33,7 +33,7 @@ public class TicketServiceImpl implements TicketService {
 
     public Ticket getTicketById(Long id) throws ServiceException {
         try {
-            return ticketDao.getTicketById(id);
+            return ticketDao.findById(id);
         } catch (DaoException e) {
             throw new ServiceException(e.getMessage(), e);
         }

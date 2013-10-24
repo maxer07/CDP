@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UserDao {
 
-    public User getUserById(Long id) throws DaoException;
+    public User findById(Long id) throws DaoException;
 }

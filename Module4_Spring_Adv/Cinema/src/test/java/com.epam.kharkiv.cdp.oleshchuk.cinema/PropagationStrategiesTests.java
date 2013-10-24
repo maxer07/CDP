@@ -12,11 +12,18 @@ import org.springframework.test.context.web.WebAppConfiguration;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
-@ContextConfiguration("file:src/main/resources/spring-config.xml")
+@ContextConfiguration("file:src/test/resources/spring-config-test.xml")
 public class PropagationStrategiesTests {
 
     @Autowired
     private TestUserService userService;
+
+    @Test(expected = Exception.class)
+    public void inserUserWithReadOnlyAndSupportsPropagation() {
+        userService.insertUserReadOnlyPropagationSupports("testUser");
+        checkResultOfTransaction(1);
+    }
+
 
     @Test
     public void inserUserWithReadOnlyAndRequiredPropagation() {
@@ -24,13 +31,7 @@ public class PropagationStrategiesTests {
         checkResultOfTransaction(0);
     }
 
-    @Test
-    public void inserUserWithReadOnlyAndSupportsPropagation() {
-        userService.insertUserReadOnlyPropagationSupports("testUser");
-        checkResultOfTransaction(1);
-    }
-
-    @Test(expected = Exception.class)
+    @Test (expected = Exception.class)
     public void insertUserOuterRequiredInnerRequiresNewAndInnerThrowsRuntimeException() throws Exception {
         userService.testRequiredWithRequiresNew("requiresNewUser");
         checkResultOfTransaction(0);
@@ -62,7 +63,6 @@ public class PropagationStrategiesTests {
 
     private void checkResultOfTransaction(int expectedRawCounts) {
         long realCount = userService.getAllCount();
-        System.out.println("real" + realCount + " expected" + expectedRawCounts);
         Assert.assertEquals(expectedRawCounts, realCount);
     }
 

@@ -21,7 +21,7 @@ public class UserStorageDao implements UserDao {
         createUsers();
     }
 
-    public User getUserById(Long id) throws DaoException {
+    public User findById(Long id) throws DaoException {
         if (id == null) {
             throw new DaoException("id is null");
         } else if (!userMap.containsKey(id)) {

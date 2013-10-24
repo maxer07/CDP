@@ -8,8 +8,10 @@ public class QueryBuilderUtil {
         StringBuilder stringBuilder = new StringBuilder();
         int index = sqlQuery.indexOf("IN (?") + "IN (?".length();
         String createNormalCount = StringUtils.repeat(",?", countOfInParams - 1);
-        stringBuilder.append(sqlQuery.substring(0, index)).append(createNormalCount).append(sqlQuery.substring(index, sqlQuery.length()));
-        stringBuilder.toString();
+        stringBuilder.
+                append(sqlQuery.substring(0, index)).
+                append(createNormalCount).
+                append(sqlQuery.substring(index, sqlQuery.length()));
         return stringBuilder.toString();
     }
 

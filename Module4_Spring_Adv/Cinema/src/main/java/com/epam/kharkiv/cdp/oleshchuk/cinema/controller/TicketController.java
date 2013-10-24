@@ -12,8 +12,6 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -29,9 +27,10 @@ public class TicketController {
     private static final Logger log = Logger.getLogger(TicketController.class);
 
     @RequestMapping(method = RequestMethod.GET, value = "/tickets")
-    public Map<String, Object> getAllTickets(HttpServletRequest request, HttpServletResponse response,
-                                             @RequestParam(required = false) String title, @RequestParam(required = false) String category,
-                                             @RequestParam(required = false) String dateFrom, @RequestParam(required = false) String dateTo) {
+    public Map<String, Object> getAllTickets(@RequestParam(required = false) String title,
+                                             @RequestParam(required = false) String category,
+                                             @RequestParam(required = false) String dateFrom,
+                                             @RequestParam(required = false) String dateTo) {
         Map<String, Object> returnParams = new HashMap<String, Object>();
         try {
             List<Ticket> availableTicket = null;
@@ -46,9 +45,11 @@ public class TicketController {
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/users/{userId}/tickets")
-    public Map<String, Object> getUserTickets(@PathVariable String userId, HttpServletRequest request, HttpServletResponse response,
-                                              @RequestParam(required = false) String title, @RequestParam(required = false) String category,
-                                              @RequestParam(required = false) String dateFrom, @RequestParam(required = false) String dateTo) {
+    public Map<String, Object> getUserTickets(@PathVariable String userId,
+                                              @RequestParam(required = false) String title,
+                                              @RequestParam(required = false) String category,
+                                              @RequestParam(required = false) String dateFrom,
+                                              @RequestParam(required = false) String dateTo) {
         Map<String, Object> returnParams = new HashMap<String, Object>();
         try {
             TicketsFilterParams ticketsFilterParams = new TicketsFilterParams(title, category, dateFrom, dateTo);
@@ -66,7 +67,8 @@ public class TicketController {
 
     @RequestMapping(method = RequestMethod.POST, value = "/users/{userId}/tickets/book")
     @ResponseBody
-    public Map<String, Object> bookTicketsByJson(@PathVariable String userId, @RequestBody TicketIdsJson ticketIdsJson) {
+    public Map<String, Object> bookTicketsByJson(@PathVariable String userId,
+                                                 @RequestBody TicketIdsJson ticketIdsJson) {
         Map<String, Object> response = new HashMap<String, Object>();
         String message = null;
         try {

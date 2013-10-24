@@ -20,7 +20,7 @@ public class UserServiceImpl implements UserService {
 
     public User getUserById(Long id) throws ServiceException {
         try {
-            return userDao.getUserById(id);
+            return userDao.findById(id);
         } catch (DaoException e) {
             throw new ServiceException(e.getMessage(), e);
         }

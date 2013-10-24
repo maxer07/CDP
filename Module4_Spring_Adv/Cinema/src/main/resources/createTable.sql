@@ -18,13 +18,6 @@ CREATE TABLE IF NOT EXISTS `user` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
-
--- Дамп структуры для таблица cinema.test_user
-CREATE TABLE IF NOT EXISTS `test_user` (
-  `id` int(11) ,
-  `name` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
 -- Дамп структуры для таблица cinema.ticket
 CREATE TABLE IF NOT EXISTS `ticket` (
   `id` int(11) NOT NULL AUTO_INCREMENT,

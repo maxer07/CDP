@@ -57,7 +57,7 @@ public class TicketStorageDao implements TicketDao {
     }
 
 
-    public Ticket getTicketById(Long id) throws DaoException {
+    public Ticket findById(Long id) throws DaoException {
         Ticket ticket = null;
         if (id == null) {
             throw new DaoException("Get ticket Id is null");
@@ -81,14 +81,14 @@ public class TicketStorageDao implements TicketDao {
         List<Ticket> bookedTickets = new ArrayList<Ticket>();
         Ticket ticket;
         for (Long id : ticketIds) {
-            ticket = getTicketById(id);
+            ticket = findById(id);
             if (ticketMap.get(ticket) != null) {
                 bookedTickets.add(ticket);
             }
         }
         if (bookedTickets.size() == 0) {
             for (Long ticketId : ticketIds) {
-                ticket = getTicketById(ticketId);
+                ticket = findById(ticketId);
                 if (ticketMap.get(ticket) != null) {
                     throw new DaoException(ticket + " is already booked");
                 }
@@ -130,7 +130,8 @@ public class TicketStorageDao implements TicketDao {
     private TicketFilter getTicketFilterChain(TicketsFilterParams ticketsFilterParams) {
         TicketFilter filterByTitle = new TicketFilterByTitle(ticketsFilterParams.getTitle());
         TicketFilter filterByCategory = new TicketFilterByCategory(ticketsFilterParams.getCategory());
-        TicketFilter filterByDate = new TicketFilterByDate(ticketsFilterParams.getDateFrom(), ticketsFilterParams.getDateTo());
+        TicketFilter filterByDate = new TicketFilterByDate(ticketsFilterParams.getDateFrom(),
+                                                            ticketsFilterParams.getDateTo());
         filterByCategory.setNextChain(filterByDate);
         filterByTitle.setNextChain(filterByCategory);
         return filterByTitle;

@@ -1,7 +1,6 @@
 package com.epam.kharkiv.cdp.oleshchuk.cinema.dao.hibernate.impl;
 
 import com.epam.kharkiv.cdp.oleshchuk.cinema.dao.UserDao;
-import com.epam.kharkiv.cdp.oleshchuk.cinema.exception.DaoException;
 import com.epam.kharkiv.cdp.oleshchuk.cinema.model.User;
 import org.springframework.stereotype.Repository;
 
@@ -13,8 +12,4 @@ public class UserHibernateDao extends AbstractHibernateDao<User, Long> implement
         return User.class;
     }
 
-    @Override
-    public User getUserById(Long id) throws DaoException {
-        return findById(id);
-    }
 }

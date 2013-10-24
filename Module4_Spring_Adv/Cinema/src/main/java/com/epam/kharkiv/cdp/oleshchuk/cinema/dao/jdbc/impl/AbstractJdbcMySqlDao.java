@@ -1,11 +1,14 @@
 package com.epam.kharkiv.cdp.oleshchuk.cinema.dao.jdbc.impl;
 
+import com.epam.kharkiv.cdp.oleshchuk.cinema.exception.DaoException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 
+import java.io.Serializable;
 
-public abstract class AbstractJdbcMySqlDao {
+
+public abstract class AbstractJdbcMySqlDao <E, K extends Serializable> {
 
     @Autowired(required = false)
     protected JdbcTemplate jdbcTemplateObject;
@@ -14,9 +17,9 @@ public abstract class AbstractJdbcMySqlDao {
 
     protected abstract String getTable();
 
-    protected Object findById(Long id) {
+    public E findById(K id) throws DaoException{
         String SQL = getAllFromTrable();
-        return jdbcTemplateObject.queryForObject(SQL, new Object[]{id}, rowMapper);
+        return (E) jdbcTemplateObject.queryForObject(SQL, new Object[]{id}, rowMapper);
     }
 
     private String getAllFromTrable() {
