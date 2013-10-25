@@ -19,33 +19,6 @@
     <mvc:annotation-driven/>
     <tx:annotation-driven transaction-manager="transactionManager"/>
 
-    <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
-        <property name="order" value="1"/>
-        <property name="contentNegotiationManager" ref="contentNegotiationManager"/>
-
-        <property name="defaultViews">
-            <list>
-                <bean class="org.springframework.web.servlet.view.json.MappingJacksonJsonView"/>
-                <bean class="com.epam.kharkiv.cdp.oleshchuk.cinema.view.PdfViewer"/>
-            </list>
-        </property>
-    </bean>
-
-    <bean id="contentNegotiationManager"
-          class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
-        <property name="favorPathExtension" value="true"/>
-        <property name="favorParameter" value="true"/>
-        <property name="parameterName" value="mediaType"/>
-        <property name="ignoreAcceptHeader" value="true"/>
-        <property name="defaultContentType" value="application/json"/>
-        <property name="mediaTypes">
-            <map>
-                <entry key="json" value="application/json"/>
-                <entry key="pdf" value="application/pdf"/>
-            </map>
-        </property>
-    </bean>
-
     <jdbc:embedded-database id="dataSource" type="H2">
         <jdbc:script location="classpath:createTable.sql"/>
     </jdbc:embedded-database>
