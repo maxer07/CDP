@@ -13,8 +13,6 @@ public interface TicketService {
 
     public void bookTicket(List<Long> ticketIds, User user) throws ServiceException;
 
-    public Ticket getTicketById(Long id) throws ServiceException;
-
     public List<Ticket> getTicketsByUser(User user, TicketsFilterParams ticketsFilterParams) throws ServiceException;
 
 }

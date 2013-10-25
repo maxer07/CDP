@@ -19,7 +19,7 @@ public class TicketHibernateDao extends AbstractHibernateDao<Ticket, Long> imple
         try {
             return sessionFactory.getCurrentSession().createQuery(HQL).list();
         } catch (Exception e) {
-            throw new DaoException("Sorry, you have entered bad params", e.getCause());
+            throw new DaoException("Sorry, you have entered bad params", e);
         }
     }
 
@@ -54,7 +54,7 @@ public class TicketHibernateDao extends AbstractHibernateDao<Ticket, Long> imple
         try {
             return sessionFactory.getCurrentSession().createQuery(HQL).setParameter("userId", user.getId()).list();
         } catch (Exception e) {
-            throw new DaoException("Sorry, you have entered bad params", e.getCause());
+            throw new DaoException("Sorry, you have entered bad params", e);
         }
     }
 
@@ -73,7 +73,6 @@ public class TicketHibernateDao extends AbstractHibernateDao<Ticket, Long> imple
             createAndConditionForDateTo(stringBuilder, ticketsFilterParams.getDateTo(), "date");
         }
         return stringBuilder.toString();
-
     }
 
     private void createAndConditionForString(StringBuilder stringBuilder, String filterParam, String rawName) {

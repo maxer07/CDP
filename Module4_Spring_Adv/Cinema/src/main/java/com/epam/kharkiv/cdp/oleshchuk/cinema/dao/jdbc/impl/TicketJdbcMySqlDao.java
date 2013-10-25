@@ -36,8 +36,6 @@ public class TicketJdbcMySqlDao extends AbstractJdbcMySqlDao<Ticket, Long> imple
         return ticketList;
     }
 
-
-
     @Override
     public synchronized void bookTicket(List<Long> ticketIds, User user) throws DaoException {
         String SQL = QueryBuilderUtil.createQueryWithInCause(SQL__QUERY__TICKET_GET_BOOKED_BY_TICKET_IDS,

@@ -31,14 +31,6 @@ public class TicketServiceImpl implements TicketService {
         }
     }
 
-    public Ticket getTicketById(Long id) throws ServiceException {
-        try {
-            return ticketDao.findById(id);
-        } catch (DaoException e) {
-            throw new ServiceException(e.getMessage(), e);
-        }
-    }
-
     @Transactional(readOnly = false, propagation = Propagation.REQUIRES_NEW)
     public void bookTicket(List<Long> ticketIds, User user) throws ServiceException {
         try {
