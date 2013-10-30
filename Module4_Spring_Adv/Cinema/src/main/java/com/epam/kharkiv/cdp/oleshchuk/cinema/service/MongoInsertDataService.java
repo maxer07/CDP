@@ -37,7 +37,6 @@ public class MongoInsertDataService implements InitializingBean {
 
     private void deleteAllCollections() {
         userDao.dropCollection("ticket");
-        userDao.dropCollection("user");
     }
 
 
