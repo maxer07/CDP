@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigInteger;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -30,11 +31,13 @@ public class TicketController {
     public Map<String, Object> getAllTickets(@RequestParam(required = false) String title,
                                              @RequestParam(required = false) String category,
                                              @RequestParam(required = false) String dateFrom,
-                                             @RequestParam(required = false) String dateTo) {
+                                             @RequestParam(required = false) String dateTo,
+                                             @RequestParam(required = false) String studio,
+                                             @RequestParam(required = false) List<String> starringActors) {
         Map<String, Object> returnParams = new HashMap<String, Object>();
         try {
             List<Ticket> availableTicket = null;
-            TicketsFilterParams ticketsFilterParams = new TicketsFilterParams(title, category, dateFrom, dateTo);
+            TicketsFilterParams ticketsFilterParams = new TicketsFilterParams(title, category, dateFrom, dateTo, studio, starringActors);
             availableTicket = ticketService.getAvailableTickets(ticketsFilterParams);
             returnParams.put("ticketsList", availableTicket);
         } catch (Exception e) {
@@ -49,12 +52,14 @@ public class TicketController {
                                               @RequestParam(required = false) String title,
                                               @RequestParam(required = false) String category,
                                               @RequestParam(required = false) String dateFrom,
-                                              @RequestParam(required = false) String dateTo) {
+                                              @RequestParam(required = false) String dateTo,
+                                              @RequestParam(required = false) String studio,
+                                              @RequestParam(required = false) List<String> starringActors) {
         Map<String, Object> returnParams = new HashMap<String, Object>();
         try {
-            TicketsFilterParams ticketsFilterParams = new TicketsFilterParams(title, category, dateFrom, dateTo);
-            Long longId = Long.parseLong(userId);
-            User user = userService.getUserById(longId);
+            TicketsFilterParams ticketsFilterParams = new TicketsFilterParams(title, category, dateFrom, dateTo, studio, starringActors);
+            BigInteger bigInteger = new BigInteger(userId, 16);
+            User user = userService.getUserById(bigInteger);
             List<Ticket> myTickets = ticketService.getTicketsByUser(user, ticketsFilterParams);
             returnParams.put("ticketsList", myTickets);
             returnParams.put("user", user);
@@ -72,8 +77,8 @@ public class TicketController {
         Map<String, Object> response = new HashMap<String, Object>();
         String message = null;
         try {
-            Long longId = Long.parseLong(userId);
-            User user = userService.getUserById(longId);
+            BigInteger bigInteger = new BigInteger(userId, 16);
+            User user = userService.getUserById(bigInteger);
             ticketService.bookTicket(ticketIdsJson.getTicketIds(), user);
             message = "Tickets are booked";
         } catch (Exception e) {

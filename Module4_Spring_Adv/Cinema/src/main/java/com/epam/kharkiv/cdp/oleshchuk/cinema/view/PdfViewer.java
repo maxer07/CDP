@@ -41,18 +41,24 @@ public class PdfViewer extends AbstractPdfView {
 
 
             List<Ticket> tickets = (List<Ticket>) model.get("ticketsList");
-            PdfPTable table = new PdfPTable(4);
+            PdfPTable table = new PdfPTable(7);
             table.setWidthPercentage(100);
             table.addCell(createHeaderCell("Date"));
             table.addCell(createHeaderCell("Film name"));
             table.addCell(createHeaderCell("Category"));
             table.addCell(createHeaderCell("Place"));
+            table.addCell(createHeaderCell("Studio"));
+            table.addCell(createHeaderCell("Starring actors"));
+            table.addCell(createHeaderCell("Description"));
 
             for (Ticket ticket : tickets) {
                 table.addCell(createCell(new SimpleDateFormat("yyyy-MM-dd").format(ticket.getDate())));
                 table.addCell(createCell(ticket.getTitle()));
                 table.addCell(createCell(ticket.getCategory().toString()));
                 table.addCell(createCell(ticket.getPlace().toString()));
+                table.addCell(createCell(ticket.getStudio()));
+                table.addCell(createCell(ticket.getStarringActors().toString()));
+                table.addCell(createCell(ticket.getDescription()));
             }
             doc.add(table);
         }

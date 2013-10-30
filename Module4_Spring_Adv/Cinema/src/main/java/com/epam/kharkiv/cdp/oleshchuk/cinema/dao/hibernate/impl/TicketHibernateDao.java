@@ -7,11 +7,12 @@ import com.epam.kharkiv.cdp.oleshchuk.cinema.model.TicketsFilterParams;
 import com.epam.kharkiv.cdp.oleshchuk.cinema.model.User;
 import org.springframework.stereotype.Repository;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
 @Repository
-public class TicketHibernateDao extends AbstractHibernateDao<Ticket, Long> implements TicketDao {
+public class TicketHibernateDao extends AbstractHibernateDao<Ticket, BigInteger> implements TicketDao {
 
     @Override
     public List<Ticket> getAvailableTickets(TicketsFilterParams ticketsFilterParams) throws DaoException {
@@ -24,9 +25,9 @@ public class TicketHibernateDao extends AbstractHibernateDao<Ticket, Long> imple
     }
 
     @Override
-    public synchronized void bookTicket(List<Long> ticketIds, User user) throws DaoException {
+    public synchronized void bookTicket(List<BigInteger> ticketIds, User user) throws DaoException {
         List<Ticket> bookedTicketsList = new ArrayList<Ticket>();
-        for (Long ticketId : ticketIds) {
+        for (BigInteger ticketId : ticketIds) {
             Ticket ticket = (Ticket) sessionFactory.getCurrentSession().
                     createQuery("from Ticket t where t.user is not null and t.id = :ticketId").
                     setParameter("ticketId", ticketId).uniqueResult();
@@ -35,7 +36,7 @@ public class TicketHibernateDao extends AbstractHibernateDao<Ticket, Long> imple
             }
         }
         if (bookedTicketsList.size() == 0) {
-            for (Long ticketId : ticketIds) {
+            for (BigInteger ticketId : ticketIds) {
                 Ticket ticket = findById(ticketId);
                 ticket.setUser(user);
                 saveOrUpdate(ticket);

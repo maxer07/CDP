@@ -3,6 +3,7 @@ package com.epam.kharkiv.cdp.oleshchuk.cinema.dao.jdbc.mapper;
 import com.epam.kharkiv.cdp.oleshchuk.cinema.model.Ticket;
 import org.springframework.jdbc.core.RowMapper;
 
+import java.math.BigInteger;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -16,7 +17,7 @@ public class TicketRowMapper implements RowMapper<Ticket> {
     @Override
     public Ticket mapRow(ResultSet rs, int rowNum) throws SQLException {
         Ticket ticket = new Ticket();
-        ticket.setId(rs.getLong(SQL__TICKET_TABLE__RAW_ID));
+        ticket.setId(new BigInteger(rs.getString(SQL__TICKET_TABLE__RAW_ID)));
         ticket.setTitle(rs.getString(SQL__TICKET_TABLE__RAW_TITLE));
         ticket.setDate(rs.getTimestamp(SQL__TICKET_TABLE__RAW_DATE));
         ticket.setCategory((rs.getString(SQL__TICKET_TABLE__RAW_CATEGORY)));

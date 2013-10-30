@@ -9,7 +9,7 @@ import java.io.Serializable;
 @Repository
 public abstract class AbstractHibernateDao <E, K extends Serializable> {
 
-    @Autowired
+    @Autowired(required = false)
     protected SessionFactory sessionFactory;
 
     protected void saveOrUpdate(E obj){

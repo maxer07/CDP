@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.math.BigInteger;
+
 @Service
 @Transactional(readOnly = true)
 public class UserServiceImpl implements UserService {
@@ -18,7 +20,7 @@ public class UserServiceImpl implements UserService {
     @Qualifier(value = "aliasUserDao")
     private UserDao userDao;
 
-    public User getUserById(Long id) throws ServiceException {
+    public User getUserById(BigInteger id) throws ServiceException {
         try {
             return userDao.findById(id);
         } catch (DaoException e) {

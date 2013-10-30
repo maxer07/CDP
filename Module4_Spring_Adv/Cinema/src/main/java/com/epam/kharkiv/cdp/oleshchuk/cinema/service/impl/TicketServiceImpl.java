@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.math.BigInteger;
 import java.util.List;
 
 @Service
@@ -32,7 +33,7 @@ public class TicketServiceImpl implements TicketService {
     }
 
     @Transactional(readOnly = false, propagation = Propagation.REQUIRES_NEW)
-    public void bookTicket(List<Long> ticketIds, User user) throws ServiceException {
+    public void bookTicket(List<BigInteger> ticketIds, User user) throws ServiceException {
         try {
             ticketDao.bookTicket(ticketIds, user);
         } catch (DaoException e) {

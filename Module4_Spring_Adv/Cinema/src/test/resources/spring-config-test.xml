@@ -40,7 +40,6 @@
             </props>
         </property>
     </bean>
-
     <alias name="ticketHibernateDao" alias="aliasTicketDao"/>
     <alias name="userHibernateDao" alias="aliasUserDao"/>
     <alias name="testUserHibernateDao" alias="aliasTestUserDao"/>

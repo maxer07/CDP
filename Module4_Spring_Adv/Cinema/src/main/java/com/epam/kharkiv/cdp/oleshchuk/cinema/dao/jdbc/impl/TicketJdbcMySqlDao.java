@@ -9,11 +9,12 @@ import com.epam.kharkiv.cdp.oleshchuk.cinema.model.TicketsFilterParams;
 import com.epam.kharkiv.cdp.oleshchuk.cinema.model.User;
 import org.springframework.stereotype.Repository;
 
+import java.math.BigInteger;
 import java.util.List;
 
 
 @Repository
-public class TicketJdbcMySqlDao extends AbstractJdbcMySqlDao<Ticket, Long> implements TicketDao {
+public class TicketJdbcMySqlDao extends AbstractJdbcMySqlDao<Ticket, BigInteger> implements TicketDao {
 
     private static final String SQL__TICKET_TABLE = "ticket";
     private static final String SQL__QUERY__TICKET_GET_ALL = "SELECT * FROM " + SQL__TICKET_TABLE +
@@ -37,13 +38,13 @@ public class TicketJdbcMySqlDao extends AbstractJdbcMySqlDao<Ticket, Long> imple
     }
 
     @Override
-    public synchronized void bookTicket(List<Long> ticketIds, User user) throws DaoException {
+    public synchronized void bookTicket(List<BigInteger> ticketIds, User user) throws DaoException {
         String SQL = QueryBuilderUtil.createQueryWithInCause(SQL__QUERY__TICKET_GET_BOOKED_BY_TICKET_IDS,
                                                              ticketIds.size());
         List<Ticket> bookedTicketsList = jdbcTemplateObject.query(SQL, ticketIds.toArray(), rowMapper);
         if (bookedTicketsList.size() == 0) {
             SQL = SQL__QUERY__TICKET_BOOK_BY_USER;
-            for (Long ticketId : ticketIds) {
+            for (BigInteger ticketId : ticketIds) {
                 jdbcTemplateObject.update(SQL, user.getId(), ticketId);
             }
         } else {

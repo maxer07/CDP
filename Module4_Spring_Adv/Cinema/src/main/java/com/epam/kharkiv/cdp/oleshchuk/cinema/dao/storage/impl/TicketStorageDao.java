@@ -12,6 +12,7 @@ import com.epam.kharkiv.cdp.oleshchuk.cinema.model.TicketsFilterParams;
 import com.epam.kharkiv.cdp.oleshchuk.cinema.model.User;
 import org.springframework.stereotype.Repository;
 
+import java.math.BigInteger;
 import java.util.*;
 
 @Repository
@@ -57,13 +58,13 @@ public class TicketStorageDao implements TicketDao {
     }
 
 
-    public Ticket findById(Long id) throws DaoException {
+    public Ticket findById(BigInteger id) throws DaoException {
         Ticket ticket = null;
         if (id == null) {
             throw new DaoException("Get ticket Id is null");
         }
         for (Map.Entry<Ticket, User> entry : ticketMap.entrySet()) {
-            if (entry.getKey().getId() == id) {
+            if (entry.getKey().getId().equals(id)) {
                 ticket = entry.getKey();
                 break;
             }
@@ -74,20 +75,20 @@ public class TicketStorageDao implements TicketDao {
         return ticket;
     }
 
-    public synchronized void bookTicket(List<Long> ticketIds, User user) throws DaoException {
+    public synchronized void bookTicket(List<BigInteger> ticketIds, User user) throws DaoException {
         if (ticketIds == null) {
             throw new DaoException("Ticket ids is null");
         }
         List<Ticket> bookedTickets = new ArrayList<Ticket>();
         Ticket ticket;
-        for (Long id : ticketIds) {
+        for (BigInteger id : ticketIds) {
             ticket = findById(id);
             if (ticketMap.get(ticket) != null) {
                 bookedTickets.add(ticket);
             }
         }
         if (bookedTickets.size() == 0) {
-            for (Long ticketId : ticketIds) {
+            for (BigInteger ticketId : ticketIds) {
                 ticket = findById(ticketId);
                 if (ticketMap.get(ticket) != null) {
                     throw new DaoException(ticket + " is already booked");
@@ -118,7 +119,8 @@ public class TicketStorageDao implements TicketDao {
     private void generateAndPutTickets(int count, String title, Date date, TicketCategory category) {
         Ticket ticket;
         for (int i = 1; i < count + 1; i++) {
-            ticket = new Ticket(getNextId(), title, date, category, i);
+            ticket = new Ticket(new BigInteger(String.valueOf(getNextId())), title, date, category, i,
+                    null, null,null,null);
             ticketMap.put(ticket, null);
         }
     }

@@ -4,6 +4,7 @@ import org.codehaus.jackson.annotate.JsonIgnore;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.math.BigInteger;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -13,30 +14,33 @@ public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Long id;
+    @JsonIgnore
+    private BigInteger id;
 
     @Column(name = "name")
     private String name;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
-    @JsonIgnore
     private Set<Ticket> tickets = new HashSet<Ticket>();
 
     public User() {
         super();
     }
 
-    public User(Long id, String name) {
+    public User(BigInteger id, String name) {
         this.name = name;
         this.id = id;
     }
 
+    public User(String name) {
+        this.name = name;
+    }
 
-    public Long getId() {
+    public BigInteger getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(BigInteger id) {
         this.id = id;
     }
 
@@ -76,7 +80,7 @@ public class User implements Serializable {
 
     @Override
     public int hashCode() {
-        return (int) (id ^ (id >>> 32));
+        return id.hashCode();
     }
 
     @Override

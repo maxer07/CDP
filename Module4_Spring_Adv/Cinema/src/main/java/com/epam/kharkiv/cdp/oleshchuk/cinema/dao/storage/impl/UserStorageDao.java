@@ -5,6 +5,8 @@ import com.epam.kharkiv.cdp.oleshchuk.cinema.exception.DaoException;
 import com.epam.kharkiv.cdp.oleshchuk.cinema.model.User;
 import org.springframework.stereotype.Repository;
 
+import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -12,16 +14,16 @@ import java.util.Map;
 @Repository
 public class UserStorageDao implements UserDao {
 
-    private static Map<Long, User> userMap;
+    private static Map<BigInteger, User> userMap;
     private static long currId;
 
     public UserStorageDao() {
-        userMap = new HashMap<Long, User>();
+        userMap = new HashMap<BigInteger, User>();
         currId = 0;
         createUsers();
     }
 
-    public User findById(Long id) throws DaoException {
+    public User findById(BigInteger id) throws DaoException {
         if (id == null) {
             throw new DaoException("id is null");
         } else if (!userMap.containsKey(id)) {
@@ -33,9 +35,9 @@ public class UserStorageDao implements UserDao {
 
     private void createUsers() {
         User user;
-        user = new User(getNextId(), "max");
+        user = new User(new BigInteger(String.valueOf(getNextId())), "max");
         userMap.put(user.getId(), user);
-        user = new User(getNextId(), "dima");
+        user = new User(new BigInteger(String.valueOf(getNextId())), "dima");
         userMap.put(user.getId(), user);
     }
 
