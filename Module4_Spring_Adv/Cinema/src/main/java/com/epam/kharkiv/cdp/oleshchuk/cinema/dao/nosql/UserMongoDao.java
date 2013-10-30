@@ -21,13 +21,4 @@ public class UserMongoDao implements UserDao {
         return mongoTemplate.findById(id, User.class);
     }
 
-    public void save (User user) {
-       mongoTemplate.save(user);
-    }
-
-    public void dropCollection (String collectionName) {
-        mongoTemplate.dropCollection(collectionName);
-    }
-
-
 }

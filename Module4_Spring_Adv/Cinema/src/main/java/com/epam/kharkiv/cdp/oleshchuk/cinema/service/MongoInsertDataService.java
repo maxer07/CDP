@@ -9,6 +9,7 @@ import com.epam.kharkiv.cdp.oleshchuk.cinema.model.User;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Service;
 
 import java.math.BigInteger;
@@ -20,31 +21,31 @@ import java.util.List;
 public class MongoInsertDataService implements InitializingBean {
 
     @Autowired
-    @Qualifier(value = "userMongoDao")
-    private UserMongoDao userDao;
-
-    @Autowired
-    @Qualifier(value = "ticketMongoDao")
-    private TicketMongoDao ticketDao;
+    private MongoTemplate mongoTemplate;
 
     @Override
     public void afterPropertiesSet() throws Exception {
-        deleteAllCollections();
+        deleteCollection("ticket");
+        deleteCollection("user");
         generateUsers();
         generateTickets();
 
     }
 
-    private void deleteAllCollections() {
-        userDao.dropCollection("ticket");
+    public void save(Object obj) {
+        mongoTemplate.save(obj);
+    }
+
+    private void deleteCollection(String collectionName) {
+        mongoTemplate.dropCollection(collectionName);
     }
 
 
     private void generateUsers() {
         User user = new User("max");
-        userDao.save(user);
+        save(user);
         user = new User("dima");
-        userDao.save(user);
+        save(user);
     }
 
     private void generateTickets() {
@@ -73,7 +74,7 @@ public class MongoInsertDataService implements InitializingBean {
         Ticket ticket;
         for (int i = 1; i < count + 1; i++) {
             ticket = new Ticket(title, date, category, i, null, studio, starringActors, description);
-            ticketDao.save(ticket);
+            save(ticket);
         }
     }
 }
