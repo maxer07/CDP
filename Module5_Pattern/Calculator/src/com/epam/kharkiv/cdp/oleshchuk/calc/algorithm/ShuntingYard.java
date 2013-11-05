@@ -12,6 +12,9 @@ public class ShuntingYard {
 
     public static Double calculate(String inputString) {
         Stack<String> valuesStack = parseString(inputString);
+        if (!valuesStack.empty() && valuesStack.size() == 1) {
+            return Double.valueOf(valuesStack.pop());
+        }
         return makeCalculations(valuesStack);
     }
 
@@ -43,6 +46,9 @@ public class ShuntingYard {
         }
         while (!signsStack.empty()) {
             numbersStack.add(signsStack.pop().getValue());
+        }
+        if (numbersStack.size()!=1) {
+            throw new RuntimeException("Too many numbers");
         }
         return ListUtil.createStackFromList(numbersStack);
     }
