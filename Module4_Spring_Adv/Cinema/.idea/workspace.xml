@@ -1,0 +1,1461 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="02d45d13-19ea-4aa3-87e8-1111a5506026" name="Default" comment="CDP Module4 Task1 Cinema:&#10;- optimized all imports;&#10;- fixed logging.">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dictionaries/Maksym_Oleshchuk.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__antlr_antlr_2_7_7.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_h2database_h2_1_3_173.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__dom4j_dom4j_1_6_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_5_1_26.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_common_hibernate_commons_annotations_4_0_2_Final.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_core_4_2_6_Final.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_entitymanager_4_2_6_Final.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_javax_persistence_hibernate_jpa_2_0_api_1_0_1_Final.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_javassist_javassist_3_15_0_GA.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_logging_jboss_logging_3_1_0_GA.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_spec_javax_transaction_jboss_transaction_api_1_1_spec_1_0_1_Final.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jdbc_3_2_0_RELEASE.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_orm_3_2_0_RELEASE.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_tx_3_2_0_RELEASE.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" />
+    </list>
+    <ignored path="Cinema.iws" />
+    <ignored path=".idea/" />
+    <ignored path="workspace/" />
+    <ignored path="target/" />
+    <ignored path="Cinema.iml" />
+    <file path="/Dummy.txt" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1383147954424" ignored="false" />
+    <file path="/TicketController.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1383069983315" ignored="false" />
+    <file path="/spring-config.xml" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1383047250640" ignored="false" />
+    <file path="/UserJdbcMySqlDao.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1382618778706" ignored="false" />
+    <file path="/UserMapper.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1381502060800" ignored="false" />
+    <file path="/UserServiceImpl.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1382616351120" ignored="false" />
+    <file path="/UserStorageDao.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1382981585955" ignored="false" />
+    <file path="/a.dummy" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1383149351394" ignored="false" />
+    <file path="/UserRowMapper.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1382981420868" ignored="false" />
+    <file path="/Constant.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1381751708969" ignored="false" />
+    <file path="/TicketRowMapper.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1383044941569" ignored="false" />
+    <file path="/TicketJdbcMySqlDao.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1383050681403" ignored="false" />
+    <file path="/TicketServiceImpl.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1383052238606" ignored="false" />
+    <file path="/UserController.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1381754788535" ignored="false" />
+    <file path="/TicketFilter.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1381828102463" ignored="false" />
+    <file path="/TicketFilterByCategory.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1381930706013" ignored="false" />
+    <file path="/TicketFilterByDate.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1381828175361" ignored="false" />
+    <file path="/TicketFilterByTitle.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1381828185529" ignored="false" />
+    <file path="/TicketService.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1383050591389" ignored="false" />
+    <file path="/Filter.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1381828756324" ignored="false" />
+    <file path="/TicketsFilter.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1381828742932" ignored="false" />
+    <file path="/TicketDao.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1383052169896" ignored="false" />
+    <file path="/TicketStorageDao.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1383066415882" ignored="false" />
+    <file path="/TicketsFilterQueryBuilder.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1381832144078" ignored="false" />
+    <file path="/QueryBuilderUtil.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1381933731064" ignored="false" />
+    <file path="$USER_HOME$/Downloads/spring-transaction-propagation-tutorial/com-byteslounge-spring-tx/src/main/resources/spring.xml" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1381845380238" ignored="false" />
+    <file path="$USER_HOME$/Downloads/spring-transaction-propagation-tutorial/com-byteslounge-spring-tx/pom.xml" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1382007654303" ignored="false" />
+    <file path="/Ticket.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1383066801747" ignored="false" />
+    <file path="/AbstractJdbcMySqlDao.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1382618762627" ignored="false" />
+    <file path="/AppTests.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1382003356288" ignored="false" />
+    <file path="$PROJECT_DIR$/.idea/workspace.xml" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1382002889898" ignored="false" />
+    <file path="/TestUserJdbcMySqlDao.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1382619641051" ignored="false" />
+    <file path="/TestUserServiceImpl.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1382444040688" ignored="false" />
+    <file path="/SpringPropagationStrategiesTests.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1382009160925" ignored="false" />
+    <file path="$USER_HOME$/Downloads/spring-transaction-propagation-tutorial/com-byteslounge-spring-tx/src/main/java/com/byteslounge/spring/tx/test/OuterBean.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1382007654303" ignored="false" />
+    <file path="$USER_HOME$/Downloads/spring-transaction-propagation-tutorial/com-byteslounge-spring-tx/src/main/java/com/byteslounge/spring/tx/test/impl/InnerBeanImpl.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1382010201060" ignored="false" />
+    <file path="$USER_HOME$/Downloads/spring-transaction-propagation-tutorial/com-byteslounge-spring-tx/src/main/java/com/byteslounge/spring/tx/test/impl/OuterBeanImpl.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1382007654303" ignored="false" />
+    <file path="$USER_HOME$/Downloads/spring-transaction-propagation-tutorial/com-byteslounge-spring-tx/src/main/java/com/byteslounge/spring/tx/model/User.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1382007654303" ignored="false" />
+    <file path="$USER_HOME$/Downloads/spring-transaction-propagation-tutorial/com-byteslounge-spring-tx/src/main/java/com/byteslounge/spring/tx/Main.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1382007654303" ignored="false" />
+    <file path="$USER_HOME$/Downloads/spring-transaction-propagation-tutorial/com-byteslounge-spring-tx/src/main/java/com/byteslounge/spring/tx/dao/TestDAO.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1382007654303" ignored="false" />
+    <file path="$USER_HOME$/Downloads/spring-transaction-propagation-tutorial/com-byteslounge-spring-tx/src/main/java/com/byteslounge/spring/tx/dao/impl/TestDAOImpl.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1382007654303" ignored="false" />
+    <file path="$USER_HOME$/Downloads/spring-transaction-propagation-tutorial/com-byteslounge-spring-tx/src/main/java/com/byteslounge/spring/tx/test/InnerBean.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1382007654303" ignored="false" />
+    <file path="/TestUserService.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1382442819664" ignored="false" />
+    <file path="/InnerBeanImpl.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1382009965714" ignored="false" />
+    <file path="/pom.xml" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1382011385773" ignored="false" />
+    <file path="/PropagationStrategiesTests.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1382443929158" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../kant-scor/beer/src/main/java/com/epam/kantscor/beer/export/controller/DataController.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1383046361267" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../kant-scor/beer/src/main/java/com/epam/kantscor/beer/kantar/model/data/inner/UserConfig.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1383148788393" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../kant-scor/beer/src/main/java/com/epam/kantscor/beer/export/util/ImageCutterUtil.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1382020575419" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../kant-scor/beer/pom.xml" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1383129694323" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../kant-scor/beer/src/main/java/com/epam/kantscor/beer/export/util/HeaderUtil.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1383129694323" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../kant-scor/beer/src/main/java/com/epam/kantscor/beer/export/util/DashboardReportUtil.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1382020575419" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../kant-scor/beer/src/main/java/com/epam/kantscor/beer/export/util/FileMonitoring.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1382020575419" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../kant-scor/beer/src/main/java/com/epam/kantscor/beer/export/model/ExportParams.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1383129694323" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../kant-scor/beer/src/main/java/com/epam/kantscor/beer/export/util/FileHelper.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1382020575419" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../kant-scor/beer/src/main/java/com/epam/kantscor/beer/export/thread/DoQuery.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1382020575419" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../kant-scor/beer/src/main/java/com/epam/kantscor/beer/export/service/ReportBuilderServiceImpl.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1383149368363" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../kant-scor/beer/src/main/java/com/epam/kantscor/beer/export/service/DataService.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1382020575419" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../kant-scor/beer/src/main/java/com/epam/kantscor/beer/export/service/PhantomExecutorService.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1382020575419" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../kant-scor/beer/src/main/java/com/epam/kantscor/beer/export/controller/ReportController.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1383129694323" ignored="false" />
+    <file path="/ReportController.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1383125421834" ignored="false" />
+    <file path="/web.xml" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1382090922711" ignored="false" />
+    <file path="/ReportBuilderServiceImpl.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1382100210746" ignored="false" />
+    <file path="/User.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1383051278269" ignored="false" />
+    <file path="/UserHibernatelDao.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1382368330033" ignored="false" />
+    <file path="/TicketHibernatelDao.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1382440230101" ignored="false" />
+    <file path="/TestUserHibernateDao.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1382981631791" ignored="false" />
+    <file path="/TestUserDao.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1382442785038" ignored="false" />
+    <file path="/TestUser.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1382444431483" ignored="false" />
+    <file path="/ActionScript File Header.txt.ft" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1382445658080" ignored="false" />
+    <file path="/File Header.txt.ft" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1382445660104" ignored="false" />
+    <file path="/AbstractHibernateDao.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1382979496215" ignored="false" />
+    <file path="/TicketHibernateDao.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1382979506537" ignored="false" />
+    <file path="/UserHibernateDao.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1382615984361" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../kant-scor/beer/src/main/java/com/epam/kantscor/beer/kantar/action/Action.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1383129694323" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../kant-scor/beer/src/main/java/com/epam/kantscor/beer/kantar/model/data/inner/widget/WidgetType.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1383129694323" ignored="false" />
+    <file path="/UserDao.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1382616075887" ignored="false" />
+    <file path="/spring-config-test.xml" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1382621540480" ignored="false" />
+    <file path="/initDB.sql" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1382619194220" ignored="false" />
+    <file path="/createTestTable.sql" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1382621256316" ignored="false" />
+    <file path="/UserRepository.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1383045321111" ignored="false" />
+    <file path="/MongoUserDao.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1383042879468" ignored="false" />
+    <file path="/MongoTicketDao.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1382978909275" ignored="false" />
+    <file path="/UserService.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1383050560379" ignored="false" />
+    <file path="/UserCustomRepository.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1383042683670" ignored="false" />
+    <file path="/UserCustomRepositoryImpl.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1383042720307" ignored="false" />
+    <file path="/TicketRepository.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1383052258480" ignored="false" />
+    <file path="/MongoInserUserService.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1383049717277" ignored="false" />
+    <file path="/UserMongoDao.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1383050480544" ignored="false" />
+    <file path="/HeaderUtil.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1383125375903" ignored="false" />
+    <file path="/TicketMongoDao.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1383070551211" ignored="false" />
+    <file path="/MongoInsertDataService.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1383147752030" ignored="false" />
+    <file path="/TicketIdsJson.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1383054539262" ignored="false" />
+    <file path="/PdfViewer.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1383066609469" ignored="false" />
+    <file path="/TicketsFilterParams.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1383070208669" ignored="false" />
+    <file path="/fragment.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1383146499139" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../kant-scor/beer/src/main/java/com/epam/kantscor/beer/kantar/model/data/inner/widget/WidgetSize.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1383148784677" ignored="false" />
+    <file path="/UserConfig.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1383148788089" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../kant-scor/beer/src/main/java/com/epam/kantscor/beer/kantar/model/data/inner/UserSchedulers.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1383129694323" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../kant-scor/beer/src/main/java/com/epam/kantscor/beer/kantar/model/data/inner/UserReports.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1383129694323" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../kant-scor/beer/src/main/java/com/epam/kantscor/beer/kantar/util/Constants.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1383129694323" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../kant-scor/beer/src/main/java/com/epam/kantscor/beer/kantar/model/data/inner/TimeValue.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1383129694323" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../kant-scor/beer/src/main/java/com/epam/kantscor/beer/kantar/model/data/inner/widget/WidgetWidth.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1383129694323" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../kant-scor/beer/src/main/java/com/epam/kantscor/beer/scheduler/model/schedule/Recurrence.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1383129694323" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../kant-scor/beer/src/main/java/com/epam/kantscor/beer/kantar/model/data/inner/widget/WidgetHeight.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1383129694323" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../kant-scor/beer/src/main/java/com/epam/kantscor/beer/scheduler/model/schedule/Schedule.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1383129694323" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../kant-scor/beer/src/main/java/com/epam/kantscor/beer/kantar/model/data/inner/DataError.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1383129694323" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../kant-scor/beer/src/main/java/com/epam/kantscor/beer/kantar/model/data/incoming/UserModel.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1383129694323" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../kant-scor/beer/src/main/java/com/epam/kantscor/beer/export/model/ExportOutputFormat.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1383129694323" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../kant-scor/beer/src/main/java/com/epam/kantscor/beer/kantar/model/data/inner/UserSchedule.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1383129694323" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../kant-scor/beer/src/main/java/com/epam/kantscor/beer/kantar/model/data/inner/Annotation.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1383129694323" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../kant-scor/beer/src/main/java/com/epam/kantscor/beer/kantar/model/data/inner/WidgetPosition.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1383129694323" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../kant-scor/beer/src/main/webapp/WEB-INF/web.xml" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1383129694323" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../kant-scor/beer/src/main/java/com/epam/kantscor/beer/kantar/model/data/inner/Report.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1383129694323" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../kant-scor/beer/src/main/java/com/epam/kantscor/beer/kantar/model/data/inner/Dashboard.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1383129694323" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../kant-scor/beer/src/main/java/com/epam/kantscor/beer/kantar/model/data/inner/DrillDownStep.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1383129694323" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../kant-scor/beer/src/main/webapp/WEB-INF/pages/getAllScheduledEvents.jsp" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1383129694323" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../kant-scor/beer/src/main/java/com/epam/kantscor/beer/kantar/model/data/inner/Widget.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1383129694323" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../kant-scor/beer/src/main/java/com/epam/kantscor/beer/kantar/model/data/inner/Row.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1383129694323" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../kant-scor/beer/src/main/java/com/epam/kantscor/beer/export/thread/Phantom.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1383147514121" ignored="false" />
+    <file path="/Phantom.java" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1383146651056" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../kant-scor/beer/src/main/webapp/WEB-INF/resources/export/js/jquery.main.js" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1383148091957" ignored="false" />
+    <file path="$PROJECT_DIR$/../../../kant-scor/beer/src/main/resources/export/js/jquery.main.js" changelist="02d45d13-19ea-4aa3-87e8-1111a5506026" time="1383148110901" ignored="false" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DaemonCodeAnalyzer">
+    <disable_hints />
+  </component>
+  <component name="DatabaseView">
+    <flatten value="false" />
+    <groupTables value="false" />
+    <sortChildren value="false" />
+  </component>
+  <component name="DebuggerManager">
+    <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true" />
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
+    <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
+      <breakpoint>
+        <option name="NOTIFY_CAUGHT" value="true" />
+        <option name="NOTIFY_UNCAUGHT" value="true" />
+        <option name="ENABLED" value="false" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint>
+        <option name="NOTIFY_CAUGHT" value="true" />
+        <option name="NOTIFY_UNCAUGHT" value="true" />
+        <option name="ENABLED" value="false" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+    </breakpoint_any>
+    <breakpoint_rules />
+    <ui_properties />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="Cinema" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="TicketMongoDao.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kharkiv/cdp/oleshchuk/cinema/dao/nosql/TicketMongoDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="65" column="3" selection-start="2558" selection-end="2634" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="spring-config-test.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/resources/spring-config-test.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PdfViewer.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kharkiv/cdp/oleshchuk/cinema/view/PdfViewer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="60" column="64" selection-start="2400" selection-end="2400" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserDao.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kharkiv/cdp/oleshchuk/cinema/dao/UserDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="10" column="17" selection-start="356" selection-end="356" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TicketDao.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kharkiv/cdp/oleshchuk/cinema/dao/TicketDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="10" column="17" selection-start="380" selection-end="380" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="147" column="62" selection-start="5019" selection-end="5019" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TicketController.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kharkiv/cdp/oleshchuk/cinema/controller/TicketController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="36" column="0" selection-start="1722" selection-end="1722" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserMongoDao.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kharkiv/cdp/oleshchuk/cinema/dao/nosql/UserMongoDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="22" column="0" selection-start="701" selection-end="701" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MongoInsertDataService.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kharkiv/cdp/oleshchuk/cinema/service/MongoInsertDataService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="28" column="30" selection-start="1103" selection-end="1103" vertical-scroll-proportion="0.4397463">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindManager">
+    <FindUsagesManager>
+      <setting name="OPEN_NEW_TAB" value="false" />
+    </FindUsagesManager>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="GitLogSettings">
+    <option name="myStructureFilterPaths" />
+    <option name="myDateState">
+      <MyDateState />
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="changedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/src/main/java/com/epam/kharkiv/cdp/oleshchuk/cinema/dao/storage/impl/UserStorageDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/epam/kharkiv/cdp/oleshchuk/cinema/model/User.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/epam/kharkiv/cdp/oleshchuk/cinema/dao/nosql/TicketRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/epam/kharkiv/cdp/oleshchuk/cinema/dao/TicketDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/epam/kharkiv/cdp/oleshchuk/cinema/service/impl/TicketServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/epam/kharkiv/cdp/oleshchuk/cinema/model/TicketIdsJson.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/epam/kharkiv/cdp/oleshchuk/cinema/dao/storage/impl/TicketStorageDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/epam/kharkiv/cdp/oleshchuk/cinema/view/PdfViewer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/epam/kharkiv/cdp/oleshchuk/cinema/model/Ticket.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/epam/kharkiv/cdp/oleshchuk/cinema/model/TicketsFilterParams.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/epam/kharkiv/cdp/oleshchuk/cinema/controller/TicketController.java" />
+        <option value="/fragment.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/epam/kharkiv/cdp/oleshchuk/cinema/dao/nosql/TicketMongoDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/epam/kharkiv/cdp/oleshchuk/cinema/dao/nosql/UserMongoDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/epam/kharkiv/cdp/oleshchuk/cinema/service/MongoInsertDataService.java" />
+      </list>
+    </option>
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Cinema" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
+        </PATH_ELEMENT>
+      </PATH>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Cinema" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Lifecycle" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$LifecycleNode" />
+        </PATH_ELEMENT>
+      </PATH>
+    </treeState>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+          <State>
+            <id>General</id>
+          </State>
+          <State>
+            <id>XPath</id>
+          </State>
+        </expanded-state>
+        <selected-state>
+          <State>
+            <id>Abstraction issues</id>
+          </State>
+        </selected-state>
+      </profile-state>
+    </entry>
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <OptionsSetting value="true" id="Undo Check Out" />
+    <OptionsSetting value="true" id="Get Latest Version" />
+    <ConfirmationsSetting value="2" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectReloadState">
+    <option name="STATE" value="0" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages ProjectPane="true" />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="PackagesPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Cinema" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Cinema" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Cinema" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Cinema" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="com.epam.kharkiv.cdp.oleshchuk.cinema" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageElementNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Cinema" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Cinema" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Cinema" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Cinema" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Cinema" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Cinema" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Cinema" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Cinema" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Cinema" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cinema" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Cinema" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Cinema" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cinema" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="service" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Cinema" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Cinema" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cinema" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dao" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Cinema" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Cinema" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cinema" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dao" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="nosql" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="GoToFile.includeJavaFiles" value="false" />
+    <property name="GoToClass.toSaveIncludeLibraries" value="false" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="recentsLimit" value="5" />
+    <property name="MemberChooser.sorted" value="false" />
+    <property name="MemberChooser.showClasses" value="true" />
+    <property name="GoToClass.includeLibraries" value="false" />
+    <property name="dynamic.classpath" value="false" />
+    <property name="MemberChooser.copyJavadoc" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.epam.cdp.oleshchuk.cinema.service.impl" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.epam.kharkiv.cdp.oleshchuk.cinema.dao.nosql" />
+      <recent name="com.epam.kharkiv.cdp.oleshchuk.cinema.dao" />
+      <recent name="com.epam.kharkiv.cdp.oleshchuk.cinema.model" />
+      <recent name="com.epam.kharkiv.cdp.oleshchuk.cinema.dao.hibernate.impl" />
+      <recent name="com.epam.kharkiv.cdp.oleshchuk.cinema.service" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\repository\CDP\Module4_Spring_Adv\Cinema\src\test\java\com.epam.kharkiv.cdp.oleshchuk.cinema" />
+      <recent name="D:\repository\CDP\Module4_Spring_Adv\Cinema\src\test\resources" />
+      <recent name="D:\repository\CDP\Module4_Spring_Adv\Cinema\src\test\java" />
+      <recent name="D:\repository\CDP\Module4_Spring_Adv\Cinema\src" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Tomcat Server.Tomcat 7.0">
+    <configuration default="false" name="TicketFilter" type="Application" factoryName="Application" temporary="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.epam.kharkiv.cdp.oleshchuk.cinema.dao.storage.filter.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="com.epam.kharkiv.cdp.oleshchuk.cinema.dao.storage.filter.TicketFilter" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="Cinema" />
+      <envs />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <ConfigurationWrapper RunnerId="Debug" />
+      <method />
+    </configuration>
+    <configuration default="false" name="TicketServiceImpl" type="Application" factoryName="Application" temporary="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.epam.kharkiv.cdp.oleshchuk.cinema.service.impl.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="com.epam.kharkiv.cdp.oleshchuk.cinema.service.impl.TicketServiceImpl" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="Cinema" />
+      <envs />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="TicketController" type="Application" factoryName="Application" temporary="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.epam.kharkiv.cdp.oleshchuk.cinema.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="com.epam.kharkiv.cdp.oleshchuk.cinema.controller.TicketController" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="Cinema" />
+      <envs />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Debug" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <configuration default="false" name="PropagationStrategiesTests" type="JUnit" factoryName="JUnit" temporary="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.epam.kharkiv.cdp.oleshchuk.cinema.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="Cinema" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.epam.kharkiv.cdp.oleshchuk.cinema" />
+      <option name="MAIN_CLASS_NAME" value="com.epam.kharkiv.cdp.oleshchuk.cinema.PropagationStrategiesTests" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <ConfigurationWrapper RunnerId="Debug" />
+      <method />
+    </configuration>
+    <configuration default="false" name="PropagationStrategiesTests.inserUserWithReadOnlyAndSupportsPropagation" type="JUnit" factoryName="JUnit" temporary="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.epam.kharkiv.cdp.oleshchuk.cinema.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="Cinema" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.epam.kharkiv.cdp.oleshchuk.cinema" />
+      <option name="MAIN_CLASS_NAME" value="com.epam.kharkiv.cdp.oleshchuk.cinema.PropagationStrategiesTests" />
+      <option name="METHOD_NAME" value="inserUserWithReadOnlyAndSupportsPropagation" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <ConfigurationWrapper RunnerId="Debug" />
+      <method />
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m" />
+      <option name="PROGRAM_PARAMETERS" />
+      <method />
+    </configuration>
+    <configuration default="true" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list />
+            </option>
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method />
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="true" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local">
+      <deployment />
+      <server-settings />
+      <predefined_log_file id="Tomcat" enabled="true" />
+      <predefined_log_file id="Tomcat Catalina" enabled="true" />
+      <predefined_log_file id="Tomcat Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <method />
+    </configuration>
+    <configuration default="true" type="com.intellij.persistence.run.ConsoleRunConfigurationType" factoryName="Query Language Console">
+      <option name="VM_PARAMETERS" value="" />
+      <option name="USER_CFG_CLASS" />
+      <option name="CONTEXT_PROVIDER" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Tomcat 7.0" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 7.0">
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="Cinema:war">
+          <settings>
+            <option name="CONTEXT_PATH" value="/" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="Unnamed_Cinema_2" />
+        <option name="HTTP_PORT" value="8088" />
+        <option name="JNDI_PORT" value="1092" />
+      </server-settings>
+      <predefined_log_file id="Tomcat" enabled="true" />
+      <predefined_log_file id="Tomcat Catalina" enabled="true" />
+      <predefined_log_file id="Tomcat Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Host Manager" enabled="false" />
+      <predefined_log_file id="Tomcat Localhost Access" enabled="false" />
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <RunnerSettings RunnerId="Cover" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="50358" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method>
+        <option name="Make" enabled="false" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="Cinema:war" />
+        </option>
+      </method>
+    </configuration>
+    <list size="6">
+      <item index="0" class="java.lang.String" itemvalue="Tomcat Server.Tomcat 7.0" />
+      <item index="1" class="java.lang.String" itemvalue="Application.TicketFilter" />
+      <item index="2" class="java.lang.String" itemvalue="Application.TicketServiceImpl" />
+      <item index="3" class="java.lang.String" itemvalue="Application.TicketController" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.PropagationStrategiesTests" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.PropagationStrategiesTests.inserUserWithReadOnlyAndSupportsPropagation" />
+    </list>
+    <recent_temporary>
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="JUnit.PropagationStrategiesTests.inserUserWithReadOnlyAndSupportsPropagation" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.PropagationStrategiesTests" />
+        <item index="2" class="java.lang.String" itemvalue="Application.TicketController" />
+        <item index="3" class="java.lang.String" itemvalue="Application.TicketServiceImpl" />
+        <item index="4" class="java.lang.String" itemvalue="Application.TicketFilter" />
+      </list>
+    </recent_temporary>
+    <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
+      <Host>localhost</Host>
+      <Port>5050</Port>
+    </configuration>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="all">
+    <option name="USER" value="" />
+    <option name="PASSWORD" value="" />
+    <option name="mySSHConnectionTimeout" value="30000" />
+    <option name="mySSHReadTimeout" value="30000" />
+    <option name="LAST_MERGED_REVISION" />
+    <option name="MERGE_DRY_RUN" value="false" />
+    <option name="MERGE_DIFF_USE_ANCESTRY" value="true" />
+    <option name="UPDATE_LOCK_ON_DEMAND" value="false" />
+    <option name="IGNORE_SPACES_IN_MERGE" value="false" />
+    <option name="CHECK_NESTED_FOR_QUICK_MERGE" value="false" />
+    <option name="IGNORE_SPACES_IN_ANNOTATE" value="true" />
+    <option name="SHOW_MERGE_SOURCES_IN_ANNOTATE" value="true" />
+    <option name="FORCE_UPDATE" value="false" />
+    <option name="IGNORE_EXTERNALS" value="false" />
+    <myIsUseDefaultProxy>false</myIsUseDefaultProxy>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="02d45d13-19ea-4aa3-87e8-1111a5506026" name="Default" comment="" />
+      <created>1381490006789</created>
+      <updated>1381490006789</updated>
+    </task>
+    <task id="LOCAL-00001" summary="CDP Module4 Task1 Cinema:&#10;- optimized all imports;&#10;- fixed logging.">
+      <created>1381490179523</created>
+      <updated>1381490179523</updated>
+    </task>
+    <task id="LOCAL-00002" summary="CDP Module4 Task1 Cinema:&#10;- optimized all imports;&#10;- fixed logging.">
+      <created>1381490332627</created>
+      <updated>1381490332627</updated>
+    </task>
+    <task id="LOCAL-00003" summary="CDP Module4 Task1 Cinema:&#10;- added JDBC DAO for users and tickets;&#10;- added util classes;&#10;- changed filter logic (chain of filters);&#10;- deleted all bad code;&#10;- create transaction for services;">
+      <created>1381846037628</created>
+      <updated>1381846037628</updated>
+    </task>
+    <task id="LOCAL-00004" summary="CDP Module4 Task1 Cinema:&#10;- transfer DB to H2;&#10;- added spring propagation strategies test;&#10;- fixed all bugs and bad code.">
+      <created>1382013625939</created>
+      <updated>1382013625939</updated>
+    </task>
+    <task id="LOCAL-00005" summary="CDP Module4 Task1 Cinema:&#10;- fixed test for H2">
+      <created>1382014674992</created>
+      <updated>1382014674992</updated>
+    </task>
+    <task id="LOCAL-00006" summary="CDP Module4 Task1 Cinema:&#10;- fixed package name">
+      <created>1382022421740</created>
+      <updated>1382022421740</updated>
+    </task>
+    <task id="LOCAL-00007" summary="CDP Module4 Task1 Cinema:&#10;- added some propagation strategies to Tests;">
+      <created>1382091155855</created>
+      <updated>1382091155855</updated>
+    </task>
+    <task id="LOCAL-00008" summary="CDP Module4 Task1 Cinema:&#10;- DB removed to inMemory">
+      <created>1382094633688</created>
+      <updated>1382094633688</updated>
+    </task>
+    <task id="LOCAL-00009" summary="CDP Module4 Task1 Cinema:&#10;- fixed tests.">
+      <created>1382099494879</created>
+      <updated>1382099494879</updated>
+    </task>
+    <task id="LOCAL-00010" summary="CDP Module4 Task3 Cinema:&#10;- rebased to Hibernate;&#10;- test created.&#10;">
+      <created>1382452865861</created>
+      <updated>1382452865861</updated>
+    </task>
+    <task id="LOCAL-00011" summary="CDP Module4 Task3 Cinema:&#10;- fixed line length;&#10;- rebase all none test classes to test dir;&#10;- create new dataSource for testing;&#10;- delete all comments;&#10;- remove all static methods;&#10;- create Abstract DAO for Hibernate;&#10;- add cause to exceptions;&#10;">
+      <created>1382626915353</created>
+      <updated>1382626915353</updated>
+    </task>
+    <task id="LOCAL-00012" summary="CDP Module4 Task1 Cinema:&#10;- change e.getCause to e;&#10;- remove all unused methods in service.">
+      <created>1382692585290</created>
+      <updated>1382692585290</updated>
+    </task>
+    <task id="LOCAL-00013" summary="CDP Module4 Task1 Cinema:&#10;- delete unused code from text-spring-config">
+      <created>1382712422264</created>
+      <updated>1382712422264</updated>
+    </task>
+    <task id="LOCAL-00014" summary="CDP Module4 Task4 Cinema:&#10;                - added Mongo DAO">
+      <created>1383127575015</created>
+      <updated>1383127575015</updated>
+    </task>
+    <task id="LOCAL-00015" summary="CDP Module4 Task1 Cinema:&#10;- without user delete;">
+      <created>1383144728113</created>
+      <updated>1383144728113</updated>
+    </task>
+    <task id="LOCAL-00016" summary="CDP Module4 Task4 Cinema:&#10;- fixed insertService">
+      <created>1383147957365</created>
+      <updated>1383147957365</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
+    <servers />
+  </component>
+  <component name="TodoView" selected-index="0">
+    <todo-panel id="selected-file">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="default-changelist">
+      <are-packages-shown value="false" />
+      <are-modules-shown value="false" />
+      <flatten-packages value="false" />
+      <is-autoscroll-to-source value="false" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="false" />
+    <layout>
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925472" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977587" sideWeight="0.67074525" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.12966916" sideWeight="0.67074525" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.42157954" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.41935483" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2289221" sideWeight="0.24471635" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998884" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925472" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998884" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2497332" sideWeight="0.5773081" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18943436" sideWeight="0.57842046" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998884" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19316968" sideWeight="0.57842046" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2836485" sideWeight="0.56990397" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998884" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32852387" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="CHECK_NEW_TODO" value="true" />
+    <option name="myTodoPanelSettings">
+      <value>
+        <are-packages-shown value="false" />
+        <are-modules-shown value="false" />
+        <flatten-packages value="false" />
+        <is-autoscroll-to-source value="false" />
+      </value>
+    </option>
+    <option name="PERFORM_UPDATE_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_COMMIT_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_EDIT_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_CHECKOUT_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_ADD_REMOVE_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_ROLLBACK_IN_BACKGROUND" value="false" />
+    <option name="CHECK_LOCALLY_CHANGED_CONFLICTS_IN_BACKGROUND" value="false" />
+    <option name="CHANGED_ON_SERVER_INTERVAL" value="60" />
+    <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="true" />
+    <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="true" />
+    <option name="DEFAULT_PATCH_EXTENSION" value="patch" />
+    <option name="SHORT_DIFF_HORIZONTALLY" value="true" />
+    <option name="SHORT_DIFF_EXTRA_LINES" value="2" />
+    <option name="SOFT_WRAPS_IN_SHORT_DIFF" value="true" />
+    <option name="INCLUDE_TEXT_INTO_PATCH" value="false" />
+    <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
+    <option name="SHOW_FILE_HISTORY_DETAILS" value="true" />
+    <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
+    <option name="SHOW_DIRTY_RECURSIVELY" value="false" />
+    <option name="LIMIT_HISTORY" value="true" />
+    <option name="MAXIMUM_HISTORY_ROWS" value="1000" />
+    <option name="UPDATE_FILTER_SCOPE_NAME" />
+    <option name="USE_COMMIT_MESSAGE_MARGIN" value="false" />
+    <option name="COMMIT_MESSAGE_MARGIN_SIZE" value="72" />
+    <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
+    <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
+    <option name="LAST_COMMIT_MESSAGE" value="CDP Module4 Task4 Cinema:&#10;- fixed insertService" />
+    <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="REFORMAT_BEFORE_FILE_COMMIT" value="false" />
+    <option name="FILE_HISTORY_DIALOG_COMMENTS_SPLITTER_PROPORTION" value="0.8" />
+    <option name="FILE_HISTORY_DIALOG_SPLITTER_PROPORTION" value="0.5" />
+    <option name="ACTIVE_VCS_NAME" />
+    <option name="UPDATE_GROUP_BY_PACKAGES" value="false" />
+    <option name="UPDATE_GROUP_BY_CHANGELIST" value="false" />
+    <option name="UPDATE_FILTER_BY_SCOPE" value="false" />
+    <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
+    <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
+    <MESSAGE value="CDP Module4 Task1 Cinema:&#10;- optimized all imports;&#10;- fixed logging." />
+    <MESSAGE value="CDP Module4 Task1 Cinema:&#10;- added JDBC DAO for users and tickets;&#10;- added util classes;&#10;- changed filter logic (chain of filters);&#10;- deleted all bad code;&#10;- create transaction for services;" />
+    <MESSAGE value="CDP Module4 Task1 Cinema:&#10;- transfer DB to H2;&#10;- added spring propagation strategies test;&#10;- fixed all bugs and bad code." />
+    <MESSAGE value="CDP Module4 Task1 Cinema:&#10;- fixed test for H2" />
+    <MESSAGE value="CDP Module4 Task1 Cinema:&#10;- fixed package name" />
+    <MESSAGE value="CDP Module4 Task1 Cinema:&#10;- added some propagation strategies to Tests;" />
+    <MESSAGE value="CDP Module4 Task1 Cinema:&#10;- DB removed to inMemory" />
+    <MESSAGE value="CDP Module4 Task1 Cinema:&#10;- fixed tests." />
+    <MESSAGE value="CDP Module4 Task3 Cinema:&#10;- rebased to Hibernate;&#10;- test created.&#10;" />
+    <MESSAGE value="CDP Module4 Task3 Cinema:&#10;- fixed line length;&#10;- rebase all none test classes to test dir;&#10;- create new dataSource for testing;&#10;- delete all comments;&#10;- remove all static methods;&#10;- create Abstract DAO for Hibernate;&#10;- add cause to exceptions;&#10;" />
+    <MESSAGE value="CDP Module4 Task1 Cinema:&#10;- change e.getCause to e;&#10;- remove all unused methods in service." />
+    <MESSAGE value="CDP Module4 Task1 Cinema:&#10;- delete unused code from text-spring-config" />
+    <MESSAGE value="CDP Module4 Task4 Cinema:&#10;                - added Mongo DAO" />
+    <MESSAGE value="CDP Module4 Task1 Cinema:&#10;- without user delete;" />
+    <MESSAGE value="CDP Module4 Task4 Cinema:&#10;- fixed insertService" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+  </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kharkiv/cdp/oleshchuk/cinema/dao/hibernate/impl/TicketHibernateDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="6" selection-start="534" selection-end="534" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kharkiv/cdp/oleshchuk/cinema/dao/hibernate/impl/UserHibernateDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="13" selection-start="288" selection-end="288" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kharkiv/cdp/oleshchuk/cinema/dao/storage/impl/TicketStorageDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="121" column="20" selection-start="5211" selection-end="5211" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kharkiv/cdp/oleshchuk/cinema/model/Ticket.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="27" selection-start="480" selection-end="480" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kharkiv/cdp/oleshchuk/cinema/model/TicketsFilterParams.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="46" selection-start="772" selection-end="772" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kharkiv/cdp/oleshchuk/cinema/service/impl/TicketServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="0" selection-start="1181" selection-end="1181" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kharkiv/cdp/oleshchuk/cinema/controller/TicketController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="0" selection-start="1722" selection-end="1722" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/resources/spring-config-test.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="147" column="62" selection-start="5019" selection-end="5019" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kharkiv/cdp/oleshchuk/cinema/view/PdfViewer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="60" column="64" selection-start="2400" selection-end="2400" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kharkiv/cdp/oleshchuk/cinema/dao/UserDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="17" selection-start="356" selection-end="356" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kharkiv/cdp/oleshchuk/cinema/dao/TicketDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="17" selection-start="380" selection-end="380" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kharkiv/cdp/oleshchuk/cinema/dao/nosql/TicketMongoDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="65" column="3" selection-start="2558" selection-end="2634" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kharkiv/cdp/oleshchuk/cinema/dao/nosql/UserMongoDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="0" selection-start="701" selection-end="701" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/epam/kharkiv/cdp/oleshchuk/cinema/service/MongoInsertDataService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="30" selection-start="1103" selection-end="1103" vertical-scroll-proportion="0.4397463">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <last-edited>Cinema:war</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>Web</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.7</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>Cinema</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.7</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Maven: aopalliance:aopalliance:1.0</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
+

@@ -1,0 +1,24 @@
+10-17 15:27:06 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST_USER" not found; SQL statement:
+INSERT INTO test_user (name) VALUES (?) [42102-173]
+10-17 15:27:06 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST_USER" not found; SQL statement:
+DELETE FROM test_user [42102-173]
+10-17 15:27:06 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST_USER" not found; SQL statement:
+INSERT INTO test_user (name) VALUES (?) [42102-173]
+10-17 15:27:07 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST_USER" not found; SQL statement:
+DELETE FROM test_user [42102-173]
+10-17 15:27:07 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST_USER" not found; SQL statement:
+INSERT INTO test_user (name) VALUES (?) [42102-173]
+10-17 15:27:07 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST_USER" not found; SQL statement:
+DELETE FROM test_user [42102-173]
+10-17 15:27:07 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST_USER" not found; SQL statement:
+INSERT INTO test_user (name) VALUES (?) [42102-173]
+10-17 15:27:08 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Table "TEST_USER" not found; SQL statement:
+DELETE FROM test_user [42102-173]
