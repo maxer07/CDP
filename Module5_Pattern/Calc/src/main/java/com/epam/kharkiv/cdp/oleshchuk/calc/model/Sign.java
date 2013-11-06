@@ -1,5 +1,7 @@
 package com.epam.kharkiv.cdp.oleshchuk.calc.model;
 
+import com.epam.kharkiv.cdp.oleshchuk.calc.exception.CalcException;
+
 public enum Sign {
 
     PLUS("+", 1),
@@ -39,7 +41,7 @@ public enum Sign {
         } else if (sign.equals(")")) {
             return Sign.RIGHT;
         } else {
-            throw new RuntimeException("No such sign");
+            throw new CalcException("No such sign");
         }
     }
 }

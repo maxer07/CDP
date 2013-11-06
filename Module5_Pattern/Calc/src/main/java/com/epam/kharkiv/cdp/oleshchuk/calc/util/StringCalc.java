@@ -1,5 +1,7 @@
 package com.epam.kharkiv.cdp.oleshchuk.calc.util;
 
+import com.epam.kharkiv.cdp.oleshchuk.calc.exception.CalcException;
+
 public class StringCalc {
 
     public static Double calculate (double x, double y, String sign) {
@@ -16,7 +18,7 @@ public class StringCalc {
             return x/y;
         }
         else  {
-            throw new RuntimeException("Sign is unssuported " + sign);
+            throw new CalcException("Sign is unsupported " + sign);
         }
     }
 }

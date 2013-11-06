@@ -1,5 +1,6 @@
 package com.epam.kharkiv.cdp.oleshchuk.calc.algorithm;
 
+import com.epam.kharkiv.cdp.oleshchuk.calc.exception.CalcException;
 import com.epam.kharkiv.cdp.oleshchuk.calc.model.Sign;
 import com.epam.kharkiv.cdp.oleshchuk.calc.util.ListUtil;
 import com.epam.kharkiv.cdp.oleshchuk.calc.util.StringCalc;
@@ -75,7 +76,7 @@ public class ShuntingYard {
             }
         }
         if (numbersStack.size()!=1) {
-            throw new RuntimeException("Too many numbers");
+            throw new CalcException("Too many numbers");
         }
         return result;
     }
