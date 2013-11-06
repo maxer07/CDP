@@ -8,8 +8,8 @@ public class Runner {
 
     public static void main(String[] args) {
         try{
-        String inputString = StringUtil.prepareInputString(args[0]);
-        Double result = ShuntingYard.calculate(inputString);
+        final String input = System.getenv("input");
+        String result = ShuntingYard.calculate(input);
         System.out.println(result);
         } catch (Exception e) {
             System.out.println("FAIL");

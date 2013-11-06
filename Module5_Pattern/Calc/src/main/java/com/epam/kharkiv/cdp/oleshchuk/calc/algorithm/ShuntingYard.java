@@ -5,18 +5,21 @@ import com.epam.kharkiv.cdp.oleshchuk.calc.model.Sign;
 import com.epam.kharkiv.cdp.oleshchuk.calc.util.ListUtil;
 import com.epam.kharkiv.cdp.oleshchuk.calc.util.StringCalc;
 
+import java.text.DecimalFormat;
 import java.util.List;
 import java.util.Stack;
 import java.util.StringTokenizer;
 
 public class ShuntingYard {
 
-    public static Double calculate(String inputString) {
+    public static String calculate(String inputString) {
         Stack<String> valuesStack = parseString(inputString);
         if (!valuesStack.empty() && valuesStack.size() == 1) {
-            return Double.valueOf(valuesStack.pop());
+            return (valuesStack.pop() + ".00");
         }
-        return makeCalculations(valuesStack);
+        DecimalFormat dtime = new DecimalFormat("0.00");
+        Double result = makeCalculations(valuesStack);
+        return dtime.format(result).replaceAll("\\," ,".");
     }
 
     private static Stack<String> parseString (String inputString) {
