@@ -11,15 +11,15 @@ import com.epam.kharkiv.cdp.oleshchuk.calc.operation.trigonometry.TgOperation;
 public enum Sign {
 
     PLUS("+", 1, Associativity.LEFT, AddOperation.class, false),
-    MINUS ("-", 1, Associativity.LEFT, SubOperation.class, false),
+    MINUS("-", 1, Associativity.LEFT, SubOperation.class, false),
     DIV("/", 2, Associativity.LEFT, DivOperation.class, false),
     MULT("*", 2, Associativity.LEFT, MultOperation.class, false),
-    POW("^", 3, Associativity.RIGHT, PowOperation.class,false),
+    POW("^", 3, Associativity.RIGHT, PowOperation.class, false),
     FACTORIAL("!", 4, Associativity.LEFT, FactorialOperation.class, true),
-    SIN("sin", 4, Associativity.LEFT, SinOperation.class,true),
-    COS("cos", 4, Associativity.LEFT, CosOperation.class,true),
+    SIN("sin", 4, Associativity.LEFT, SinOperation.class, true),
+    COS("cos", 4, Associativity.LEFT, CosOperation.class, true),
     TG("tg", 4, Associativity.LEFT, TgOperation.class, true),
-    CTG("ctg", 4, Associativity.LEFT, CtgOperation.class,true),
+    CTG("ctg", 4, Associativity.LEFT, CtgOperation.class, true),
     LEFT("(", 0, Associativity.LEFT, null, false),
     RIGHT(")", 0, Associativity.LEFT, null, false);
 
@@ -35,7 +35,7 @@ public enum Sign {
         this.associativity = associativity;
         this.unary = unary;
         try {
-            if (clazz!=null) this.mathOperation = clazz.newInstance();
+            if (clazz != null) this.mathOperation = clazz.newInstance();
         } catch (Exception e) {
             throw new CalcException("There is no class with name " + clazz.getName());
         }

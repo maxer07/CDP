@@ -20,34 +20,19 @@ public class ShuntingYard {
         }
         DecimalFormat dtime = new DecimalFormat("0.00");
         BigDecimal result = getResult(valuesStack);
-        return dtime.format(result).replaceAll("\\," ,".");
+        return dtime.format(result).replaceAll("\\,", ".");
     }
 
-    private static Stack<String> parseString (String inputString) {
+    private static Stack<String> parseString(String inputString) {
         Stack<String> numbersStack = new Stack<String>();
         Stack<Sign> signsStack = new Stack<Sign>();
         StringTokenizer stringTokenizer = new StringTokenizer(inputString, "+-/*()^!\\", true);
         while (stringTokenizer.hasMoreElements()) {
             String token = stringTokenizer.nextElement().toString();
             try {
-                parseDoubleAndPushItIntoStack(token, numbersStack);
+                parseNumberAndPushItIntoStack(token, numbersStack);
             } catch (NumberFormatException e) {
-                if (token.equals("\\")) continue;
-                Sign sign = Sign.getSignFromString(token);
-                if (sign == Sign.FACTORIAL) {
-                    numbersStack.add(sign.getValue());
-                }
-                else if (sign == Sign.LEFT) {
-                    signsStack.push(sign);
-                } else if (sign == Sign.RIGHT) {
-                    while (signsStack.peek() != Sign.LEFT) {
-                        numbersStack.add(signsStack.pop().getValue());
-                    }
-                    signsStack.pop();
-                }
-                else {
-                    pushSign(numbersStack, signsStack, sign);
-                }
+                pushSignIntoSignStack(token, numbersStack, signsStack);
             }
         }
         while (!signsStack.empty()) {
@@ -57,12 +42,12 @@ public class ShuntingYard {
     }
 
     private static void pushSign(List<String> numbersStack, Stack<Sign> signsStack, Sign sign) {
-            if (isCurentSignPriorityLessStackSignPriority(sign, signsStack)) {
-                numbersStack.add(signsStack.pop().getValue());
-                pushSign(numbersStack, signsStack, sign);
-            } else {
-                signsStack.push(sign);
-            }
+        if (isCurrentSignPriorityLessStackSignPriority(sign, signsStack)) {
+            numbersStack.add(signsStack.pop().getValue());
+            pushSign(numbersStack, signsStack, sign);
+        } else {
+            signsStack.push(sign);
+        }
     }
 
 
@@ -72,24 +57,41 @@ public class ShuntingYard {
         while (!sourceStack.empty()) {
             String token = sourceStack.pop();
             try {
-                parseDoubleAndPushItIntoStack(token, numbersStack);
+                parseNumberAndPushItIntoStack(token, numbersStack);
             } catch (NumberFormatException e) {
                 result = doCalculation(token, numbersStack);
                 numbersStack.push(result.toString());
             }
         }
-        if (numbersStack.size()!=1) {
+        if (numbersStack.size() != 1) {
             throw new CalcException("Too many numbers");
         }
         return result;
     }
 
-    private static void parseDoubleAndPushItIntoStack(String token, Stack<String> numbersStack) {
+    private static void parseNumberAndPushItIntoStack(String token, Stack<String> numbersStack) {
         Double number = Double.valueOf(token);
         numbersStack.push(number.toString());
     }
 
-    private static boolean isCurentSignPriorityLessStackSignPriority(Sign sign, Stack<Sign> signsStack) {
+    private static void pushSignIntoSignStack(String operator, Stack<String> numbersStack, Stack<Sign> signsStack) {
+        if (operator.equals("\\")) return;
+        Sign sign = Sign.getSignFromString(operator);
+        if (sign == Sign.FACTORIAL) {
+            numbersStack.add(sign.getValue());
+        } else if (sign == Sign.LEFT) {
+            signsStack.push(sign);
+        } else if (sign == Sign.RIGHT) {
+            while (signsStack.peek() != Sign.LEFT) {
+                numbersStack.add(signsStack.pop().getValue());
+            }
+            signsStack.pop();
+        } else {
+            pushSign(numbersStack, signsStack, sign);
+        }
+    }
+
+    private static boolean isCurrentSignPriorityLessStackSignPriority(Sign sign, Stack<Sign> signsStack) {
         return (!signsStack.empty() && (signsStack.peek().getPriority() >= sign.getPriority()) && sign.getAssociativity() == Associativity.LEFT);
     }
 
