@@ -21,7 +21,7 @@ public class StringUtil {
         while(m.find()){
             String trigonoFunc =  m.group(1);
             String angle = m.group(2);
-            String substring = angle + "\\" + trigonoFunc + "\\" ;
+            String substring ="(" + angle + "\\" + trigonoFunc + "\\)" ;
             stringBuilder.delete(m.start(), m.end());
             stringBuilder.insert(m.start(), substring);
         }

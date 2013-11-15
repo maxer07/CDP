@@ -26,19 +26,8 @@ public class ShuntingYard {
     private static Stack<String> parseString(String inputString) {
         Stack<String> numbersStack = new Stack<String>();
         Stack<Sign> signsStack = new Stack<Sign>();
-        StringTokenizer stringTokenizer = new StringTokenizer(inputString, "+-/*()^!\\", true);
-        while (stringTokenizer.hasMoreElements()) {
-            String token = stringTokenizer.nextElement().toString();
-            try {
-                parseNumberAndPushItIntoStack(token, numbersStack);
-            } catch (NumberFormatException e) {
-                pushSignIntoSignStack(token, numbersStack, signsStack);
-            }
-        }
-        while (!signsStack.empty()) {
-            numbersStack.add(signsStack.pop().getValue());
-        }
-        return ListUtil.createStackFromList(numbersStack);
+        parseToken(inputString, numbersStack, signsStack);
+        return createOutputForCalculation(numbersStack, signsStack);
     }
 
     private static void pushSign(List<String> numbersStack, Stack<Sign> signsStack, Sign sign) {
@@ -57,9 +46,9 @@ public class ShuntingYard {
         while (!sourceStack.empty()) {
             String token = sourceStack.pop();
             try {
-                parseNumberAndPushItIntoStack(token, numbersStack);
+                parseNumber(token, numbersStack);
             } catch (NumberFormatException e) {
-                result = doCalculation(token, numbersStack);
+                result = calcExpression(token, numbersStack);
                 numbersStack.push(result.toString());
             }
         }
@@ -69,12 +58,12 @@ public class ShuntingYard {
         return result;
     }
 
-    private static void parseNumberAndPushItIntoStack(String token, Stack<String> numbersStack) {
+    private static void parseNumber(String token, Stack<String> numbersStack) {
         Double number = Double.valueOf(token);
         numbersStack.push(number.toString());
     }
 
-    private static void pushSignIntoSignStack(String operator, Stack<String> numbersStack, Stack<Sign> signsStack) {
+    private static void parseSign(String operator, Stack<String> numbersStack, Stack<Sign> signsStack) {
         if (operator.equals("\\")) return;
         Sign sign = Sign.getSignFromString(operator);
         if (sign == Sign.FACTORIAL) {
@@ -95,7 +84,7 @@ public class ShuntingYard {
         return (!signsStack.empty() && (signsStack.peek().getPriority() >= sign.getPriority()) && sign.getAssociativity() == Associativity.LEFT);
     }
 
-    private static BigDecimal doCalculation(String operator, Stack<String> numbersStack) {
+    private static BigDecimal calcExpression(String operator, Stack<String> numbersStack) {
         Double lastNumber = Double.valueOf(numbersStack.pop());
         Sign sign = Sign.getSignFromString(operator);
         if (sign.isUnary()) {
@@ -105,6 +94,25 @@ public class ShuntingYard {
             return sign.getMathOperation().doOperation(new BigDecimal(preLastNumber), new BigDecimal(lastNumber));
         }
 
+    }
+
+    private static void parseToken(String inputString, Stack<String> numbersStack, Stack<Sign> signsStack) {
+        StringTokenizer stringTokenizer = new StringTokenizer(inputString, "+-/*()^!\\", true);
+        while (stringTokenizer.hasMoreElements()) {
+            String token = stringTokenizer.nextElement().toString();
+            try {
+                parseNumber(token, numbersStack);
+            } catch (NumberFormatException e) {
+                parseSign(token, numbersStack, signsStack);
+            }
+        }
+    }
+
+    private static Stack<String> createOutputForCalculation(Stack<String> numbersStack, Stack<Sign> signsStack) {
+        while (!signsStack.empty()) {
+            numbersStack.add(signsStack.pop().getValue());
+        }
+        return ListUtil.createStackFromList(numbersStack);
     }
 
 
