@@ -19,19 +19,18 @@ public class ShuntingYard {
             return (valuesStack.pop() + "0");
         }
         DecimalFormat dtime = new DecimalFormat("0.00");
-        BigDecimal result = makeCalculations(valuesStack);
+        BigDecimal result = getResult(valuesStack);
         return dtime.format(result).replaceAll("\\," ,".");
     }
 
     private static Stack<String> parseString (String inputString) {
-        List<String> numbersStack = new Stack<String>();
+        Stack<String> numbersStack = new Stack<String>();
         Stack<Sign> signsStack = new Stack<Sign>();
         StringTokenizer stringTokenizer = new StringTokenizer(inputString, "+-/*()^!\\", true);
         while (stringTokenizer.hasMoreElements()) {
             String token = stringTokenizer.nextElement().toString();
             try {
-                Double number = Double.valueOf(token);
-                numbersStack.add(number.toString());
+                parseDoubleAndPushItIntoStack(token, numbersStack);
             } catch (NumberFormatException e) {
                 if (token.equals("\\")) continue;
                 Sign sign = Sign.getSignFromString(token);
@@ -58,7 +57,7 @@ public class ShuntingYard {
     }
 
     private static void pushSign(List<String> numbersStack, Stack<Sign> signsStack, Sign sign) {
-            if (!signsStack.empty() && (signsStack.peek().getPriority() >= sign.getPriority()) && sign.getAssociativity() == Associativity.LEFT) {
+            if (isCurentSignPriorityLessStackSignPriority(sign, signsStack)) {
                 numbersStack.add(signsStack.pop().getValue());
                 pushSign(numbersStack, signsStack, sign);
             } else {
@@ -67,24 +66,15 @@ public class ShuntingYard {
     }
 
 
-    private static BigDecimal makeCalculations(Stack<String> sourceStack) {
+    private static BigDecimal getResult(Stack<String> sourceStack) {
         Stack<String> numbersStack = new Stack<String>();
         BigDecimal result = BigDecimal.ZERO;
         while (!sourceStack.empty()) {
             String token = sourceStack.pop();
             try {
-                Double number = Double.valueOf(token);
-                numbersStack.push(number.toString());
+                parseDoubleAndPushItIntoStack(token, numbersStack);
             } catch (NumberFormatException e) {
-                Double lastNumber = Double.valueOf(numbersStack.pop());
-                Sign sign = Sign.getSignFromString(token);
-                if (sign.isUnary()) {
-                    result = sign.getMathOperation().doOperation(new BigDecimal(lastNumber));
-                }
-                else  {
-                    Double preLastNumber = Double.valueOf(numbersStack.pop());
-                    result = sign.getMathOperation().doOperation(new BigDecimal(preLastNumber), new BigDecimal(lastNumber));
-                }
+                result = doCalculation(token, numbersStack);
                 numbersStack.push(result.toString());
             }
         }
@@ -92,6 +82,27 @@ public class ShuntingYard {
             throw new CalcException("Too many numbers");
         }
         return result;
+    }
+
+    private static void parseDoubleAndPushItIntoStack(String token, Stack<String> numbersStack) {
+        Double number = Double.valueOf(token);
+        numbersStack.push(number.toString());
+    }
+
+    private static boolean isCurentSignPriorityLessStackSignPriority(Sign sign, Stack<Sign> signsStack) {
+        return (!signsStack.empty() && (signsStack.peek().getPriority() >= sign.getPriority()) && sign.getAssociativity() == Associativity.LEFT);
+    }
+
+    private static BigDecimal doCalculation(String operator, Stack<String> numbersStack) {
+        Double lastNumber = Double.valueOf(numbersStack.pop());
+        Sign sign = Sign.getSignFromString(operator);
+        if (sign.isUnary()) {
+            return sign.getMathOperation().doOperation(new BigDecimal(lastNumber));
+        } else {
+            Double preLastNumber = Double.valueOf(numbersStack.pop());
+            return sign.getMathOperation().doOperation(new BigDecimal(preLastNumber), new BigDecimal(lastNumber));
+        }
+
     }
 
 

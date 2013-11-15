@@ -12,7 +12,6 @@ import java.util.regex.Pattern;
 public class Runner {
 
     public static void main(String[] args) {
-
         try {
             final String input = System.getenv("input");
             String prepareString = StringUtil.prepareInputString(input);

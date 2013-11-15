@@ -35,7 +35,7 @@ public enum Sign {
         this.associativity = associativity;
         this.unary = unary;
         try {
-            if (priority!=0) this.mathOperation = (MathOperation) Class.forName(clazz.getName()).newInstance();
+            if (clazz!=null) this.mathOperation = clazz.newInstance();
         } catch (Exception e) {
             throw new CalcException("There is no class with name " + clazz.getName());
         }
@@ -61,6 +61,7 @@ public enum Sign {
     public MathOperation getMathOperation() {
         return mathOperation;
     }
+
 
     public static Sign getSignFromString(String sign) {
         switch (sign) {
