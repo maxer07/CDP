@@ -14,7 +14,7 @@ public class Runner {
     public static void main(String[] args) {
         try {
             final String input = System.getenv("input");
-            String prepareString = StringUtil.prepareInputString("2*100+sin(30)^2");
+            String prepareString = StringUtil.prepareInputString("sin(90)");
             String result = ShuntingYard.calculate(prepareString);
             System.out.println(result);
         } catch (Exception e) {

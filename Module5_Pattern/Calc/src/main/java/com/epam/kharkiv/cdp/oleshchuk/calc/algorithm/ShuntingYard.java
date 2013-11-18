@@ -30,32 +30,16 @@ public class ShuntingYard {
         return createOutputForCalculation(numbersStack, signsStack);
     }
 
-    private static void pushSign(List<String> numbersStack, Stack<Sign> signsStack, Sign sign) {
-        if (isCurrentSignPriorityLessStackSignPriority(sign, signsStack)) {
-            numbersStack.add(signsStack.pop().getValue());
-            pushSign(numbersStack, signsStack, sign);
-        } else {
-            signsStack.push(sign);
-        }
-    }
-
-
-    private static BigDecimal getResult(Stack<String> sourceStack) {
-        Stack<String> numbersStack = new Stack<String>();
-        BigDecimal result = BigDecimal.ZERO;
-        while (!sourceStack.empty()) {
-            String token = sourceStack.pop();
+    private static void parseToken(String inputString, Stack<String> numbersStack, Stack<Sign> signsStack) {
+        StringTokenizer stringTokenizer = new StringTokenizer(inputString, "+-/*()^!\\", true);
+        while (stringTokenizer.hasMoreElements()) {
+            String token = stringTokenizer.nextElement().toString();
             try {
                 parseNumber(token, numbersStack);
             } catch (NumberFormatException e) {
-                result = calcExpression(token, numbersStack);
-                numbersStack.push(result.toString());
+                parseSign(token, numbersStack, signsStack);
             }
         }
-        if (numbersStack.size() != 1) {
-            throw new CalcException("Too many numbers");
-        }
-        return result;
     }
 
     private static void parseNumber(String token, Stack<String> numbersStack) {
@@ -80,8 +64,42 @@ public class ShuntingYard {
         }
     }
 
+    private static void pushSign(List<String> numbersStack, Stack<Sign> signsStack, Sign sign) {
+        if (isCurrentSignPriorityLessStackSignPriority(sign, signsStack)) {
+            numbersStack.add(signsStack.pop().getValue());
+            pushSign(numbersStack, signsStack, sign);
+        } else {
+            signsStack.push(sign);
+        }
+    }
+
     private static boolean isCurrentSignPriorityLessStackSignPriority(Sign sign, Stack<Sign> signsStack) {
         return (!signsStack.empty() && (signsStack.peek().getPriority() >= sign.getPriority()) && sign.getAssociativity() == Associativity.LEFT);
+    }
+
+    private static Stack<String> createOutputForCalculation(Stack<String> numbersStack, Stack<Sign> signsStack) {
+        while (!signsStack.empty()) {
+            numbersStack.add(signsStack.pop().getValue());
+        }
+        return ListUtil.createStackFromList(numbersStack);
+    }
+
+    private static BigDecimal getResult(Stack<String> sourceStack) {
+        Stack<String> numbersStack = new Stack<String>();
+        BigDecimal result = BigDecimal.ZERO;
+        while (!sourceStack.empty()) {
+            String token = sourceStack.pop();
+            try {
+                parseNumber(token, numbersStack);
+            } catch (NumberFormatException e) {
+                result = calcExpression(token, numbersStack);
+                numbersStack.push(result.toString());
+            }
+        }
+        if (numbersStack.size() != 1) {
+            throw new CalcException("Too many numbers");
+        }
+        return result;
     }
 
     private static BigDecimal calcExpression(String operator, Stack<String> numbersStack) {
@@ -94,25 +112,6 @@ public class ShuntingYard {
             return sign.getMathOperation().doOperation(new BigDecimal(preLastNumber), new BigDecimal(lastNumber));
         }
 
-    }
-
-    private static void parseToken(String inputString, Stack<String> numbersStack, Stack<Sign> signsStack) {
-        StringTokenizer stringTokenizer = new StringTokenizer(inputString, "+-/*()^!\\", true);
-        while (stringTokenizer.hasMoreElements()) {
-            String token = stringTokenizer.nextElement().toString();
-            try {
-                parseNumber(token, numbersStack);
-            } catch (NumberFormatException e) {
-                parseSign(token, numbersStack, signsStack);
-            }
-        }
-    }
-
-    private static Stack<String> createOutputForCalculation(Stack<String> numbersStack, Stack<Sign> signsStack) {
-        while (!signsStack.empty()) {
-            numbersStack.add(signsStack.pop().getValue());
-        }
-        return ListUtil.createStackFromList(numbersStack);
     }
 
 
