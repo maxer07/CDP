@@ -58,7 +58,7 @@ public class TicketController {
         Map<String, Object> returnParams = new HashMap<String, Object>();
         try {
             TicketsFilterParams ticketsFilterParams = new TicketsFilterParams(title, category, dateFrom, dateTo, studio, starringActors);
-            BigInteger bigInteger = new BigInteger(userId, 16);
+            BigInteger bigInteger = new BigInteger(userId, 10);
             User user = userService.getUserById(bigInteger);
             List<Ticket> myTickets = ticketService.getTicketsByUser(user, ticketsFilterParams);
             returnParams.put("ticketsList", myTickets);
@@ -77,7 +77,7 @@ public class TicketController {
         Map<String, Object> response = new HashMap<String, Object>();
         String message = null;
         try {
-            BigInteger bigInteger = new BigInteger(userId, 16);
+            BigInteger bigInteger = new BigInteger(userId, 10);
             User user = userService.getUserById(bigInteger);
             ticketService.bookTicket(ticketIdsJson.getTicketIds(), user);
             message = "Tickets are booked";

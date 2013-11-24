@@ -1,16 +1,25 @@
 package com.epam.kharkiv.cdp.oleshchuk.cinema.model;
 
+import com.epam.kharkiv.cdp.oleshchuk.cinema.cqrs.Aggregate;
+import com.epam.kharkiv.cdp.oleshchuk.cinema.cqrs.event.Event;
+import com.epam.kharkiv.cdp.oleshchuk.cinema.cqrs.event.TicketBookedEvent;
+import com.epam.kharkiv.cdp.oleshchuk.cinema.cqrs.event.TicketCreatedEvent;
+import com.epam.kharkiv.cdp.oleshchuk.cinema.cqrs.event.UserCreatedEvent;
+import com.epam.kharkiv.cdp.oleshchuk.cinema.exception.ReplayException;
+import org.apache.commons.lang3.Validate;
 import org.codehaus.jackson.annotate.JsonIgnore;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.lang.reflect.Method;
 import java.math.BigInteger;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
 @Entity
 @Table(name = "ticket")
-public class Ticket implements Comparable<Ticket>, Serializable {
+public class Ticket extends Aggregate implements Comparable<Ticket>, Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -46,30 +55,19 @@ public class Ticket implements Comparable<Ticket>, Serializable {
     public Ticket() {
     }
 
-    public Ticket(BigInteger id, String title, Date date, TicketCategory category,
-                  Integer place, User user, String studio, List<String> starringActors,
-                  String description) {
-        this.id = id;
-        this.title = title;
-        this.date = date;
-        this.category = category;
-        this.place = place;
-        this.studio = studio;
-        this.starringActors = starringActors;
-        this.description = description;
-        this.user = user;
-    }
-
     public Ticket(String title, Date date, TicketCategory category, Integer place, User user,
                   String studio, List<String> starringActors, String description) {
-        this.title = title;
-        this.date = date;
-        this.category = category;
-        this.place = place;
-        this.studio = studio;
-        this.starringActors = starringActors;
-        this.description = description;
-        this.user = user;
+        createTicket(Long.valueOf(new Random().nextLong()),  new BigInteger(String.valueOf(new Random().nextInt())), title,date,category,place,studio,starringActors,description,user);
+    }
+
+    public Ticket(BigInteger id, String title, Date date, TicketCategory category, Integer place, User user,
+                  String studio, List<String> starringActors, String description) {
+        createTicket(Long.valueOf(new Random().nextLong()),id,title,date,category,place,studio,starringActors,description,user);
+    }
+
+    public Ticket(Long identity, String title, Date date, TicketCategory category, Integer place, User user,
+                  String studio, List<String> starringActors, String description) {
+        createTicket(identity, new BigInteger(String.valueOf(new Random().nextInt())), title, date, category, place, studio, starringActors, description, user);
     }
 
     public String getStudio() {
@@ -187,5 +185,49 @@ public class Ticket implements Comparable<Ticket>, Serializable {
                 ", place=" + place +
                 ", user=" + user +
                 '}';
+    }
+
+    @Override
+    protected void replay(final Event event){
+        try{
+            Method m = getClass().getDeclaredMethod("replay", event.getClass());
+            m.invoke(this,event);
+        }catch(Exception e){
+            throw new ReplayException("Failed to replay contact with id =>" + this.identity, e);
+        }
+    }
+
+    public void bookTicket(final User user){
+        Validate.notNull(user, "User cannot be null! Cannot book the ticket.");
+        this.user = user;
+        applyEvent( new TicketBookedEvent(this.identity, this.user));
+    }
+
+
+
+    protected void replay(final TicketBookedEvent event){
+        bookTicket(event.getUser());
+    }
+
+    protected void replay(final TicketCreatedEvent event){
+        createTicket(event.getIdentity(), null, event.getTitle(), event.getDate(), event.getCategory(), event.getPlace(),
+                event.getStudio(), event.getStarringActors(), event.getDescription(), event.getUser());
+    }
+
+    protected final void createTicket(Long identity, BigInteger id, String title, Date date, TicketCategory category, Integer place,
+                                      String studio, List<String> starringActors, String description, User user){
+        Validate.notNull(identity, "Identity cannot be null");
+        this.identity = identity;
+        this.id = id;
+        this.title = title;
+        this.date = date;
+        this.category = category;
+        this.place = place;
+        this.studio = studio;
+        this.starringActors = starringActors;
+        this.description = description;
+        this.user = user;
+        applyEvent( new TicketCreatedEvent(identity, title, date, category, place, studio,
+                starringActors, description, user));
     }
 }

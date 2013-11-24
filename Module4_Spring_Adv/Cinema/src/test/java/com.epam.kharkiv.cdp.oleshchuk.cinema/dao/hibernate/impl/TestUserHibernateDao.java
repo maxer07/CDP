@@ -14,7 +14,7 @@ public class TestUserHibernateDao extends AbstractHibernateDao<User, Long> imple
 
     @Override
     public void insertUser(String userName) {
-        User tempUser = new User(new BigInteger("1"), userName);
+        User tempUser = new User( userName);
         saveOrUpdate(tempUser);
     }
 

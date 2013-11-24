@@ -1,5 +1,7 @@
 package com.epam.kharkiv.cdp.oleshchuk.cinema.dao.nosql;
 
+import com.epam.kharkiv.cdp.oleshchuk.cinema.cqrs.command.ticket.TicketBookedCommand;
+import com.epam.kharkiv.cdp.oleshchuk.cinema.cqrs.command.ticket.TicketCommandHandlers;
 import com.epam.kharkiv.cdp.oleshchuk.cinema.dao.TicketDao;
 import com.epam.kharkiv.cdp.oleshchuk.cinema.exception.DaoException;
 import com.epam.kharkiv.cdp.oleshchuk.cinema.model.Ticket;
@@ -19,6 +21,8 @@ public class TicketMongoDao implements TicketDao {
 
     @Autowired
     MongoOperations mongoTemplate;
+    @Autowired
+    private TicketCommandHandlers ticketCommandHandlers;
 
 
     @Override
@@ -51,6 +55,7 @@ public class TicketMongoDao implements TicketDao {
         }
         for (Ticket ticket : ticketToBeBooked) {
             save(ticket);
+            ticketCommandHandlers.handle(new TicketBookedCommand(ticket.getIdentity(), user));
         }
 
     }

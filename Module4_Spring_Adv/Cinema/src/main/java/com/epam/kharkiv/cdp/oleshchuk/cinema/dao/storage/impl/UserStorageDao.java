@@ -35,9 +35,9 @@ public class UserStorageDao implements UserDao {
 
     private void createUsers() {
         User user;
-        user = new User(new BigInteger(String.valueOf(getNextId())), "max");
+        user = new User("max");
         userMap.put(user.getId(), user);
-        user = new User(new BigInteger(String.valueOf(getNextId())), "dima");
+        user = new User("dima");
         userMap.put(user.getId(), user);
     }
 

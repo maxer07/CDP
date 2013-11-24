@@ -1,16 +1,23 @@
 package com.epam.kharkiv.cdp.oleshchuk.cinema.model;
 
+import com.epam.kharkiv.cdp.oleshchuk.cinema.cqrs.Aggregate;
+import com.epam.kharkiv.cdp.oleshchuk.cinema.cqrs.event.Event;
+import com.epam.kharkiv.cdp.oleshchuk.cinema.cqrs.event.UserCreatedEvent;
+import com.epam.kharkiv.cdp.oleshchuk.cinema.exception.ReplayException;
+import org.apache.commons.lang3.Validate;
 import org.codehaus.jackson.annotate.JsonIgnore;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.lang.reflect.Method;
 import java.math.BigInteger;
 import java.util.HashSet;
+import java.util.Random;
 import java.util.Set;
 
 @Entity
 @Table(name = "user")
-public class User implements Serializable {
+public class User extends Aggregate implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -27,13 +34,23 @@ public class User implements Serializable {
         super();
     }
 
+    public User(String name) {
+        createUser(Long.valueOf(new Random().nextLong()),new BigInteger(String.valueOf(new Random().nextInt())), name);
+    }
+    public User(Long Long, String name) {
+        createUser(Long,new BigInteger(String.valueOf(new Random().nextInt())), name);
+    }
     public User(BigInteger id, String name) {
-        this.name = name;
-        this.id = id;
+        createUser(Long.valueOf(new Random().nextLong()),id, name);
     }
 
-    public User(String name) {
+    protected final void createUser(Long identity, BigInteger id, String name){
+        Validate.notNull(identity, "Identity cannot be null");
+        Validate.notNull(name, "Name cannot be null");
+        this.identity = identity;
         this.name = name;
+        this.id = id;
+        applyEvent( new UserCreatedEvent(this.identity, this.name));
     }
 
     public BigInteger getId() {
@@ -42,6 +59,20 @@ public class User implements Serializable {
 
     public void setId(BigInteger id) {
         this.id = id;
+    }
+
+    @Override
+    protected void replay(final Event event){
+        try{
+            Method m = getClass().getDeclaredMethod("replay", event.getClass());
+            m.invoke(this,event);
+        }catch(Exception e){
+            throw new ReplayException("Failed to replay contact with id =>" + this.identity, e);
+        }
+    }
+
+    protected void replay(final UserCreatedEvent event){
+        createUser(event.getIdentity(), null, event.getName());
     }
 
     public void setName(String name) {

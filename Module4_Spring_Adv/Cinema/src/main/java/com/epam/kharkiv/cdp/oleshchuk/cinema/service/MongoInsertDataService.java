@@ -1,14 +1,17 @@
 package com.epam.kharkiv.cdp.oleshchuk.cinema.service;
 
-import com.epam.kharkiv.cdp.oleshchuk.cinema.dao.UserDao;
-import com.epam.kharkiv.cdp.oleshchuk.cinema.dao.nosql.TicketMongoDao;
-import com.epam.kharkiv.cdp.oleshchuk.cinema.dao.nosql.UserMongoDao;
+import com.epam.kharkiv.cdp.oleshchuk.cinema.cqrs.UserRepository;
+import com.epam.kharkiv.cdp.oleshchuk.cinema.cqrs.command.ticket.CreateTicketCommand;
+import com.epam.kharkiv.cdp.oleshchuk.cinema.cqrs.command.ticket.TicketBookedCommand;
+import com.epam.kharkiv.cdp.oleshchuk.cinema.cqrs.command.ticket.TicketCommandHandlers;
+import com.epam.kharkiv.cdp.oleshchuk.cinema.cqrs.command.user.CreateUserCommand;
+import com.epam.kharkiv.cdp.oleshchuk.cinema.cqrs.command.user.UserCommandHandlers;
+import com.epam.kharkiv.cdp.oleshchuk.cinema.cqrs.event.EventStore;
 import com.epam.kharkiv.cdp.oleshchuk.cinema.model.Ticket;
 import com.epam.kharkiv.cdp.oleshchuk.cinema.model.TicketCategory;
 import com.epam.kharkiv.cdp.oleshchuk.cinema.model.User;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Service;
 
@@ -23,10 +26,18 @@ public class MongoInsertDataService implements InitializingBean {
     @Autowired
     private MongoTemplate mongoTemplate;
 
+    @Autowired
+    private UserCommandHandlers userCommandHandlers;
+    @Autowired
+    private TicketCommandHandlers ticketCommandHandlers;
+
+    private static long id;
+
     @Override
     public void afterPropertiesSet() throws Exception {
         deleteCollection("ticket");
         deleteCollection("user");
+        deleteCollection("eventModel");
         generateUsers();
         generateTickets();
 
@@ -42,10 +53,11 @@ public class MongoInsertDataService implements InitializingBean {
 
 
     private void generateUsers() {
-        User user = new User("max");
-        save(user);
-        user = new User("dima");
-        save(user);
+        userCommandHandlers.handle(new CreateUserCommand("max"));
+        userCommandHandlers.handle(new CreateUserCommand("dima"));
+        save(new User(new BigInteger("0"), "max"));
+        save(new User(new BigInteger("1"), "dima"));
+
     }
 
     private void generateTickets() {
@@ -72,9 +84,16 @@ public class MongoInsertDataService implements InitializingBean {
                                        String studio, List<String> starringActors,
                                        String description) {
         Ticket ticket;
+        long identiy;
         for (int i = 1; i < count + 1; i++) {
-            ticket = new Ticket(title, date, category, i, null, studio, starringActors, description);
-            save(ticket);
+            identiy = getNextId();
+            save(new Ticket(identiy, title, date, category, i, null, studio, starringActors, description));
+            ticketCommandHandlers.handle(new CreateTicketCommand(title, date, category, i, studio,
+                    starringActors, description, null, identiy));
         }
+    }
+
+    private synchronized long getNextId() {
+        return id++;
     }
 }

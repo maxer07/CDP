@@ -119,8 +119,7 @@ public class TicketStorageDao implements TicketDao {
     private void generateAndPutTickets(int count, String title, Date date, TicketCategory category) {
         Ticket ticket;
         for (int i = 1; i < count + 1; i++) {
-            ticket = new Ticket(new BigInteger(String.valueOf(getNextId())), title, date, category, i,
-                    null, null,null,null);
+            ticket = new Ticket(title, date, category, i,null, null,null,null);
             ticketMap.put(ticket, null);
         }
     }
