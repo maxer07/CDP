@@ -16,13 +16,12 @@
 package com.epam.kharkiv.cdp.oleshchuk.cinema.cqrs;
 
 import com.epam.kharkiv.cdp.oleshchuk.cinema.cqrs.event.Event;
-import com.epam.kharkiv.cdp.oleshchuk.cinema.cqrs.event.EventStore;
-import com.epam.kharkiv.cdp.oleshchuk.cinema.cqrs.event.MemoryEventStore;
-import com.epam.kharkiv.cdp.oleshchuk.cinema.cqrs.event.UserCreatedEvent;
-import com.epam.kharkiv.cdp.oleshchuk.cinema.exception.CqrsVersionException;
+import com.epam.kharkiv.cdp.oleshchuk.cinema.cqrs.event.store.EventStore;
+import com.epam.kharkiv.cdp.oleshchuk.cinema.cqrs.event.user.UserCreatedEvent;
 import com.epam.kharkiv.cdp.oleshchuk.cinema.model.EventModel;
+import com.epam.kharkiv.cdp.oleshchuk.cinema.model.Ticket;
+import com.epam.kharkiv.cdp.oleshchuk.cinema.model.TicketCategory;
 import com.epam.kharkiv.cdp.oleshchuk.cinema.model.User;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +31,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
-import java.math.BigInteger;
+import java.util.Date;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -44,7 +43,9 @@ import static org.junit.Assert.*;
 public class PersistentUserTests {
 
     @Autowired
-    private UserRepository persistentUsers;
+    private UserCqrsRepositoryImpl userCqrsRepository;
+    @Autowired
+    private TicketCqrsRepositoryImpl ticketCqrsRepository;
     @Autowired
     private EventStore eventStore;
     @Autowired
@@ -56,20 +57,45 @@ public class PersistentUserTests {
     public void testStoreEvents(){
         long uuid = 20L;
         User user = new User(uuid, "testUser");
-        persistentUsers.store(user);
+        userCqrsRepository.store(user);
         List<Event> events = eventStore.sourceEvents(uuid);
         assertEquals(1, events.size());
         assertTrue(events.get(0) instanceof UserCreatedEvent);
         mongoTemplate.remove(new BasicQuery(" {identity : " + uuid + "}"), EventModel.class);
     }
 
+
     @Test
     public void testLoadContactByEvents(){
         long uuid = 21L;
-        persistentUsers.store(new User(uuid, "testUser2"));
-        final User user = persistentUsers.load(21L);
+        userCqrsRepository.store(new User(uuid, "testUser2"));
+        final User user = userCqrsRepository.load(uuid);
         assertEquals("testUser2", user.getName());
         mongoTemplate.remove(new BasicQuery(" {identity : " + uuid + "}"), EventModel.class);
     }
+
+    @Test
+    public void testStoreTicketByEvents(){
+        long uuid = 23L;
+        String title = "very bad film";
+        String description = "no description";
+        String studio = "Ukrainian studio";
+        Date date = new Date(System.currentTimeMillis());
+        Integer place = 1;
+        TicketCategory ticketCategory = TicketCategory.BAR;
+        User user = new User("Georgii Rychko");
+        ticketCqrsRepository.store(new Ticket(uuid, title, date, ticketCategory,place,user,studio, null,description));
+        final Ticket ticket = ticketCqrsRepository.load(uuid);
+        assertEquals(title, ticket.getTitle());
+        assertEquals(description, ticket.getDescription());
+        assertEquals(studio, ticket.getStudio());
+        assertEquals(date, ticket.getDate());
+        assertEquals(place, ticket.getPlace());
+        assertEquals(ticketCategory, ticket.getCategory());
+        assertEquals(user.getName(), ticket.getUser().getName());
+        mongoTemplate.remove(new BasicQuery(" {identity : " + uuid + "}"), EventModel.class);
+    }
+
+
 
 }

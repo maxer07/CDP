@@ -1,12 +1,9 @@
 package com.epam.kharkiv.cdp.oleshchuk.cinema.service;
 
-import com.epam.kharkiv.cdp.oleshchuk.cinema.cqrs.UserRepository;
 import com.epam.kharkiv.cdp.oleshchuk.cinema.cqrs.command.ticket.CreateTicketCommand;
-import com.epam.kharkiv.cdp.oleshchuk.cinema.cqrs.command.ticket.TicketBookedCommand;
 import com.epam.kharkiv.cdp.oleshchuk.cinema.cqrs.command.ticket.TicketCommandHandlers;
 import com.epam.kharkiv.cdp.oleshchuk.cinema.cqrs.command.user.CreateUserCommand;
 import com.epam.kharkiv.cdp.oleshchuk.cinema.cqrs.command.user.UserCommandHandlers;
-import com.epam.kharkiv.cdp.oleshchuk.cinema.cqrs.event.EventStore;
 import com.epam.kharkiv.cdp.oleshchuk.cinema.model.Ticket;
 import com.epam.kharkiv.cdp.oleshchuk.cinema.model.TicketCategory;
 import com.epam.kharkiv.cdp.oleshchuk.cinema.model.User;

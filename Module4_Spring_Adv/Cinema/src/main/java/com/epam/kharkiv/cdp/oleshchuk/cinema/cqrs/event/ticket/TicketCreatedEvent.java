@@ -1,5 +1,6 @@
-package com.epam.kharkiv.cdp.oleshchuk.cinema.cqrs.event;
+package com.epam.kharkiv.cdp.oleshchuk.cinema.cqrs.event.ticket;
 
+import com.epam.kharkiv.cdp.oleshchuk.cinema.cqrs.event.Event;
 import com.epam.kharkiv.cdp.oleshchuk.cinema.model.TicketCategory;
 import com.epam.kharkiv.cdp.oleshchuk.cinema.model.User;
 

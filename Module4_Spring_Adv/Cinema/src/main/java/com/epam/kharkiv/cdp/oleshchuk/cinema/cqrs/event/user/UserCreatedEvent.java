@@ -1,5 +1,7 @@
-package com.epam.kharkiv.cdp.oleshchuk.cinema.cqrs.event;
+package com.epam.kharkiv.cdp.oleshchuk.cinema.cqrs.event.user;
 
+
+import com.epam.kharkiv.cdp.oleshchuk.cinema.cqrs.event.Event;
 
 import java.io.Serializable;
 

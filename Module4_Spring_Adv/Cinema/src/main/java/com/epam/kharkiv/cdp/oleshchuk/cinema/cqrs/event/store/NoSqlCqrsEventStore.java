@@ -1,5 +1,6 @@
-package com.epam.kharkiv.cdp.oleshchuk.cinema.cqrs.event;
+package com.epam.kharkiv.cdp.oleshchuk.cinema.cqrs.event.store;
 
+import com.epam.kharkiv.cdp.oleshchuk.cinema.cqrs.event.Event;
 import com.epam.kharkiv.cdp.oleshchuk.cinema.exception.CqrsVersionException;
 import com.epam.kharkiv.cdp.oleshchuk.cinema.model.EventModel;
 import com.epam.kharkiv.cdp.oleshchuk.cinema.model.StoredEvent;
@@ -11,7 +12,7 @@ import org.springframework.stereotype.Repository;
 import java.util.*;
 
 @Repository
-public class MemoryEventStore implements EventStore{
+public class NoSqlCqrsEventStore implements EventStore{
 
     @Autowired
     private MongoTemplate mongoTemplate;

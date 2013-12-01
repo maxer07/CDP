@@ -1,5 +1,6 @@
-package com.epam.kharkiv.cdp.oleshchuk.cinema.cqrs.event;
+package com.epam.kharkiv.cdp.oleshchuk.cinema.cqrs.event.store;
 
+import com.epam.kharkiv.cdp.oleshchuk.cinema.cqrs.event.Event;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

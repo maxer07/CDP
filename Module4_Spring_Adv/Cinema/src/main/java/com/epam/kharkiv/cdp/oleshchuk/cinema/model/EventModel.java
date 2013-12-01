@@ -1,7 +1,5 @@
 package com.epam.kharkiv.cdp.oleshchuk.cinema.model;
 
-import com.epam.kharkiv.cdp.oleshchuk.cinema.cqrs.event.Event;
-import com.epam.kharkiv.cdp.oleshchuk.cinema.cqrs.event.MemoryEventStore;
 import org.codehaus.jackson.annotate.JsonIgnore;
 import org.springframework.data.mongodb.core.mapping.Field;
 

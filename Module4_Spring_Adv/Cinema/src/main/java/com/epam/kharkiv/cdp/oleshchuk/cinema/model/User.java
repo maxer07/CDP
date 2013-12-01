@@ -2,7 +2,7 @@ package com.epam.kharkiv.cdp.oleshchuk.cinema.model;
 
 import com.epam.kharkiv.cdp.oleshchuk.cinema.cqrs.Aggregate;
 import com.epam.kharkiv.cdp.oleshchuk.cinema.cqrs.event.Event;
-import com.epam.kharkiv.cdp.oleshchuk.cinema.cqrs.event.UserCreatedEvent;
+import com.epam.kharkiv.cdp.oleshchuk.cinema.cqrs.event.user.UserCreatedEvent;
 import com.epam.kharkiv.cdp.oleshchuk.cinema.exception.ReplayException;
 import org.apache.commons.lang3.Validate;
 import org.codehaus.jackson.annotate.JsonIgnore;
