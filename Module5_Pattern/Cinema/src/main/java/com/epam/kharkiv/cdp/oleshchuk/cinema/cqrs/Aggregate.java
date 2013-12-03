@@ -47,4 +47,15 @@ public abstract class Aggregate {
 
     protected abstract void replay(Event event);
 
+    private static Long aggregateId = 0L;
+    private static int objectId = 0;
+
+    protected synchronized Long generateAggregateId() {
+         return aggregateId++;
+    }
+    protected synchronized int generateObjectId() {
+        return objectId++;
+    }
+
+
 }

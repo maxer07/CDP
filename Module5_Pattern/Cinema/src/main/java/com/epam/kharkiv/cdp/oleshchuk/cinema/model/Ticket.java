@@ -14,7 +14,6 @@ import java.lang.reflect.Method;
 import java.math.BigInteger;
 import java.util.Date;
 import java.util.List;
-import java.util.Random;
 
 @Entity
 @Table(name = "ticket")
@@ -54,19 +53,14 @@ public class Ticket extends Aggregate implements Comparable<Ticket>, Serializabl
     public Ticket() {
     }
 
-    public Ticket(String title, Date date, TicketCategory category, Integer place, User user,
-                  String studio, List<String> starringActors, String description) {
-        createTicket(Long.valueOf(new Random().nextLong()),  new BigInteger(String.valueOf(new Random().nextInt())), title,date,category,place,studio,starringActors,description,user);
-    }
-
-    public Ticket(BigInteger id, String title, Date date, TicketCategory category, Integer place, User user,
-                  String studio, List<String> starringActors, String description) {
-        createTicket(Long.valueOf(new Random().nextLong()),id,title,date,category,place,studio,starringActors,description,user);
-    }
-
     public Ticket(Long identity, String title, Date date, TicketCategory category, Integer place, User user,
                   String studio, List<String> starringActors, String description) {
-        createTicket(identity, new BigInteger(String.valueOf(new Random().nextInt())), title, date, category, place, studio, starringActors, description, user);
+        createTicket(identity, new BigInteger(String.valueOf(generateObjectId())), title, date, category, place, studio, starringActors, description, user);
+    }
+
+    public Ticket(Long identity, BigInteger id, String title, Date date, TicketCategory category, Integer place, User user,
+                  String studio, List<String> starringActors, String description) {
+        createTicket(identity, id, title, date, category, place, studio, starringActors, description, user);
     }
 
     public String getStudio() {

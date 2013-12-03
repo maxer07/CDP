@@ -1,5 +1,7 @@
 package com.epam.kharkiv.cdp.oleshchuk.cinema.service.impl;
 
+import com.epam.kharkiv.cdp.oleshchuk.cinema.cqrs.command.ticket.TicketBookedCommand;
+import com.epam.kharkiv.cdp.oleshchuk.cinema.cqrs.command.ticket.TicketCommandHandlers;
 import com.epam.kharkiv.cdp.oleshchuk.cinema.dao.TicketDao;
 import com.epam.kharkiv.cdp.oleshchuk.cinema.exception.DaoException;
 import com.epam.kharkiv.cdp.oleshchuk.cinema.exception.ServiceException;
@@ -23,6 +25,8 @@ public class TicketServiceImpl implements TicketService {
     @Autowired
     @Qualifier(value = "aliasTicketDao")
     TicketDao ticketDao;
+    @Autowired
+    TicketCommandHandlers ticketCommandHandlers;
 
     public List<Ticket> getAvailableTickets(TicketsFilterParams ticketsFilterParams) throws ServiceException {
         try {
@@ -35,7 +39,10 @@ public class TicketServiceImpl implements TicketService {
     @Transactional(readOnly = false, propagation = Propagation.REQUIRES_NEW)
     public void bookTicket(List<BigInteger> ticketIds, User user) throws ServiceException {
         try {
-            ticketDao.bookTicket(ticketIds, user);
+            List<Ticket> bookedTickets = ticketDao.bookTicket(ticketIds, user);
+            for (Ticket bokkedTicket : bookedTickets) {
+                ticketCommandHandlers.handle(new TicketBookedCommand(bokkedTicket.getIdentity(), user));
+            }
         } catch (DaoException e) {
             throw new ServiceException(e.getMessage(), e);
         }

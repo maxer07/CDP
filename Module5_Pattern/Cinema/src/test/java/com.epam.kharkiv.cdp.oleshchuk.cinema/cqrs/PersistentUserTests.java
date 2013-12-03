@@ -55,7 +55,7 @@ public class PersistentUserTests {
 
     @Test
     public void testStoreEvents(){
-        long uuid = 20L;
+        long uuid = -100L;
         User user = new User(uuid, "testUser");
         userCqrsRepository.store(user);
         List<Event> events = eventStore.sourceEvents(uuid);
@@ -67,7 +67,7 @@ public class PersistentUserTests {
 
     @Test
     public void testLoadContactByEvents(){
-        long uuid = 21L;
+        long uuid = -101L;
         userCqrsRepository.store(new User(uuid, "testUser2"));
         final User user = userCqrsRepository.load(uuid);
         assertEquals("testUser2", user.getName());
@@ -76,7 +76,7 @@ public class PersistentUserTests {
 
     @Test
     public void testStoreTicketByEvents(){
-        long uuid = 23L;
+        long uuid = -103L;
         String title = "very bad film";
         String description = "no description";
         String studio = "Ukrainian studio";
