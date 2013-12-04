@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.epam.kharkiv.cdp.oleshchuk.cinema.cqrs.PersistentUserTests
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.879 sec
