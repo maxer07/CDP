@@ -12,8 +12,9 @@ public class TicketCommandHandlers {
 
 
     public void handle(final CreateTicketCommand command){
-        final Ticket ticket = new Ticket(command.getIdentity(), command.getTitle(), command.getDate(), command.getCategory(),command.getPlace(),
-                command.getUser(), command.getStudio(), command.getStarringActors(), command.getDescription());
+        final Ticket ticket = new Ticket(command.getIdentity(), command.getId(), command.getTitle(), command.getDate(),
+                command.getCategory(),command.getPlace(), command.getUser(), command.getStudio(),
+                command.getStarringActors(), command.getDescription());
         ticketCqrsRepositoryImpl.store(ticket);
     }
 

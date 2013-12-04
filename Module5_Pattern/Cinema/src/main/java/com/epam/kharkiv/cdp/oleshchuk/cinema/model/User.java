@@ -12,7 +12,6 @@ import java.io.Serializable;
 import java.lang.reflect.Method;
 import java.math.BigInteger;
 import java.util.HashSet;
-import java.util.Random;
 import java.util.Set;
 
 @Entity
@@ -35,13 +34,13 @@ public class User extends Aggregate implements Serializable {
     }
 
     public User(String name) {
-        createUser(Long.valueOf(new Random().nextLong()),new BigInteger(String.valueOf(new Random().nextInt())), name);
+        createUser(generateAggregateId(),new BigInteger(String.valueOf(generateAggregateId())), name);
     }
     public User(Long Long, String name) {
-        createUser(Long,new BigInteger(String.valueOf(new Random().nextInt())), name);
+        createUser(Long,new BigInteger(String.valueOf(generateAggregateId())), name);
     }
     public User(BigInteger id, String name) {
-        createUser(Long.valueOf(new Random().nextLong()),id, name);
+        createUser(generateAggregateId(),id, name);
     }
 
     protected final void createUser(Long identity, BigInteger id, String name){
@@ -50,7 +49,7 @@ public class User extends Aggregate implements Serializable {
         this.identity = identity;
         this.name = name;
         this.id = id;
-        applyEvent( new UserCreatedEvent(this.identity, this.name));
+        applyEvent(new UserCreatedEvent(this.identity, this.name));
     }
 
     public BigInteger getId() {

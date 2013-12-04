@@ -28,7 +28,7 @@ public class MongoInsertDataService implements InitializingBean {
     @Autowired
     private TicketCommandHandlers ticketCommandHandlers;
 
-    private static long id;
+    private static long id = 1000L;
 
     @Override
     public void afterPropertiesSet() throws Exception {
@@ -80,13 +80,14 @@ public class MongoInsertDataService implements InitializingBean {
     private void generateAndPutTickets(int count, String title, Date date, TicketCategory category,
                                        String studio, List<String> starringActors,
                                        String description) {
-        Ticket ticket;
         long identiy;
+        Ticket ticket;
         for (int i = 1; i < count + 1; i++) {
             identiy = getNextId();
-            save(new Ticket(identiy, title, date, category, i, null, studio, starringActors, description));
+            ticket = new Ticket(identiy, title, date, category, i, null, studio, starringActors, description);
+            save(ticket);
             ticketCommandHandlers.handle(new CreateTicketCommand(title, date, category, i, studio,
-                    starringActors, description, null, identiy));
+                    starringActors, description, null, identiy, ticket.getId()));
         }
     }
 
