@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.epam.kharkiv.cdp.oleshchuk.reader.impl.CollectionsStoredFileWordReaderTest
--------------------------------------------------------------------------------
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.026 sec

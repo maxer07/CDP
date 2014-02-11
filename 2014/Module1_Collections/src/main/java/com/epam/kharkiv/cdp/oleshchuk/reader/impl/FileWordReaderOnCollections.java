@@ -7,12 +7,12 @@ import java.util.Collection;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class CollectionsStoredFileWordReadable implements FileWordReadable {
+public class FileWordReaderOnCollections implements FileWordReadable {
 
     private static final String WORD_REGEX = "[\\w]+";
     private Collection<String> sourceCollection;
 
-    public CollectionsStoredFileWordReadable(Collection<String> sourceCollection) {
+    public FileWordReaderOnCollections(Collection<String> sourceCollection) {
         this.sourceCollection = sourceCollection;
     }
 
@@ -26,6 +26,7 @@ public class CollectionsStoredFileWordReadable implements FileWordReadable {
         while ( (line = br.readLine()) != null) {
             separateLineIntoWords(line);
         }
+        System.out.println("File successfully read");
         return sourceCollection;
     }
 
